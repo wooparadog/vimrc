@@ -1,0 +1,36 @@
+[submodule "bundle/gundo"]
+	path = bundle/gundo
+	url = https://github.com/sjl/gundo.vim.git
+[submodule "bundle/nerdree"]
+	path = bundle/nerdree
+	url = https://github.com/vim-scripts/The-NERD-tree.git
+[submodule "bundle/pep8"]
+	path = bundle/pep8
+	url = https://github.com/vim-scripts/pep8.git
+[submodule "bundle/vim-indent-guides"]
+	path = bundle/vim-indent-guides
+	url = git://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git
+[submodule "bundle/ctrlp"]
+	path = bundle/ctrlp
+	url = git://github.com/kien/ctrlp.vim.git
+[submodule "bundle/tagbar"]
+	path = bundle/tagbar
+	url = git://github.com/majutsushi/tagbar.git
+[submodule "bundle/nerdcommenter"]
+	path = bundle/nerdcommenter
+	url = git://github.com/scrooloose/nerdcommenter.git
+[submodule "bundle/snipmate"]
+	path = bundle/snipmate
+	url = git://github.com/msanders/snipmate.vim.git
+[submodule "bundle/world_complete"]
+	path = bundle/world_complete
+	url = git://github.com/vim-scripts/word_complete.vim.git
+[submodule "bundle/zen_coding"]
+	path = bundle/zen_coding
+	url = git://github.com/mattn/zencoding-vim.git
+[submodule "bundle/mru"]
+	path = bundle/mru
+	url = git://github.com/vim-scripts/mru.vim.git
