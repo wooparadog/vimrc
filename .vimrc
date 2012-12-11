@@ -5,13 +5,14 @@ call pathogen#infect()
 "===================================="
 
 syntax on
-colorscheme blackbeauty
+colorscheme blackbeauty ",koehler
 filetype plugin on
 filetype indent on
 
 set autoindent
 set backspace=eol,start,indent
 set completeopt=menuone,preview
+set cul cuc
 set cursorline              " have a line indicate the cursor location
 set encoding=utf-8
 set fileencodings=utf-8,gb2312,gbk
@@ -31,7 +32,6 @@ set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 set wildmenu
 
 " Disabled Ones
-"set cul cuc
 
 " Y-N-C prompt if closing with unsaved changes.
 "set confirm
@@ -189,14 +189,8 @@ let g:pep8_map='<leader>8'
 "===================================="
 
 " Template =>
-autocmd User plugin-template-loaded call s:template_keywords()
-function! s:template_keywords()
-	"%s/<+FILE NAME+>/\=expand('%:t')/g
-	"%s/<+DATE+>/\=strftime('%Y-%m-%d')/g
-	"w
-	"!chmod +x %
-	" And more...
-endfunction 
+let g:templates_no_autocmd = 0
+let g:template_dir = "~/.vim/templates/"
 " <= Template
 
 let MRU_Max_Entries = 100
@@ -248,6 +242,9 @@ autocmd FileType python set errorformat=%f:%l:\ %m
 autocmd FileType python set smartindent cinwords=if,elif,else,for,while,with,try,except,finally,def,class
 autocmd FileType python :IndentGuidesEnable
 autocmd BufRead *.ptl set ft=python
+" Highlighten Trailing Space 
+autocmd FileType python highlight WhitespaceEOL ctermbg=red guibg=red
+autocmd FileType python match WhitespaceEOL /\s\+$/
 
 " Python Rope AutoComplete
 let ropevim_vim_completion = 1
