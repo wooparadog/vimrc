@@ -37,3 +37,21 @@
 [submodule "bundle/tabBar"]
 	path = bundle/tabBar
 	url = git://github.com/vim-scripts/TabBar.git
+[submodule "bundle/gocode"]
+	path = bundle/gocode
+	url = git://github.com/nsf/gocode.git
+[submodule "bundle/html5"]
+	path = bundle/html5
+	url = git://github.com/othree/html5.vim.git
+[submodule "bundle/matchit"]
+	path = bundle/matchit
+	url = git://github.com/vim-scripts/matchit.zip.git
+[submodule "bundle/xml.vim"]
+	path = bundle/xml.vim
+	url = git://github.com/othree/xml.vim.git
+[submodule "bundle/vim-css-color"]
+	path = bundle/vim-css-color
+	url = git://github.com/skammer/vim-css-color.git
+[submodule "bundle/vim-template"]
+	path = bundle/vim-template
+	url = git://github.com/aperezdc/vim-template.git
