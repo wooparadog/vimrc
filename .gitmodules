@@ -31,9 +31,6 @@
 [submodule "bundle/zen_coding"]
 	path = bundle/zen_coding
 	url = git://github.com/mattn/zencoding-vim.git
-[submodule "bundle/mru"]
-	path = bundle/mru
-	url = git://github.com/vim-scripts/mru.vim.git
 [submodule "bundle/tabBar"]
 	path = bundle/tabBar
 	url = git://github.com/vim-scripts/TabBar.git

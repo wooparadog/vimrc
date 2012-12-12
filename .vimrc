@@ -200,6 +200,7 @@ endfunction
 " <= Template
 
 let MRU_Max_Entries = 100
+"let MRU_Use_Current_Window = 1
 
 let g:use_zen_complete_tag = 1
 let g:user_zen_expandabbr_key = '<c-e>'
