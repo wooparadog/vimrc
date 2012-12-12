@@ -1,3 +1,4 @@
+set t_Co=256
 call pathogen#infect()
 
 "===================================="
@@ -8,6 +9,7 @@ syntax on
 colorscheme blackbeauty ",koehler
 filetype plugin on
 filetype indent on
+
 
 set autoindent
 set backspace=eol,start,indent
@@ -187,6 +189,8 @@ let g:pep8_map='<leader>8'
 "===================================="
 "          Plugin Settings           "
 "===================================="
+
+let g:Powerline_symbols = 'fancy'
 
 " Template =>
 let g:templates_no_autocmd = 0
