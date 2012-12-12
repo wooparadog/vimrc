@@ -215,8 +215,8 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1 
 
 let g:Tb_SplitToEdge = 1
-let g:Tb_UseSingleClick=1
-let g:Tb_MaxSize=5
+let g:Tb_UseSingleClick = 1
+let g:Tb_MaxSize = 5
 " <= Tab
 
 " Pydoc in normal mode, upper 'K' show pydoc =>
@@ -247,6 +247,7 @@ autocmd FileType python set makeprg=pylint\ --reports=n\ --output-format=parseab
 autocmd FileType python set errorformat=%f:%l:\ %m
 autocmd FileType python set smartindent cinwords=if,elif,else,for,while,with,try,except,finally,def,class
 autocmd FileType python :IndentGuidesEnable
+autocmd FileType python let g:syntastic_python_checker_args = '--disable=E1101,W0611,W0614,R0401,C0103,C0322,C0111,C0324,C0301,W0142,R0913,W0622,C0323'
 autocmd BufRead *.ptl set ft=python
 
 " Python Rope AutoComplete
