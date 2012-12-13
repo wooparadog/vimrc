@@ -14,7 +14,7 @@ filetype indent on
 set autoindent
 set backspace=eol,start,indent
 set completeopt=menuone,preview
-set cul cuc
+set cul "cuc
 set cursorline              " have a line indicate the cursor location
 set encoding=utf-8
 set fileencodings=utf-8,gb2312,gbk
@@ -175,6 +175,25 @@ func FormartSrc()
     endif
     exec "e! %"
 endfunc
+
+" c-x c-x => git grep the word under cursor
+let g:gitgrepprg="git\\ grep\\ -n"
+let g:gitroot="`git rev-parse --show-cdup`"
+
+function! GitGrep(args)
+    let grepprg_bak=&grepprg
+    exec "set grepprg=" . g:gitgrepprg
+    execute "silent! grep " . a:args . " " . g:gitroot
+    botright copen
+    let &grepprg=grepprg_bak
+    exec "redraw!"
+endfunction
+
+func GitGrepWord()
+    normal! "zyiw
+    call GitGrep(getreg('z'))
+endf
+nmap <C-x><C-x> :call GitGrepWord()<CR>
 
 "===================================="
 "       Plugin Mapping Settings      "
