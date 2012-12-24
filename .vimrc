@@ -249,6 +249,7 @@ let g:indent_guides_guide_size = 1
 
 " GO
 set rtp+=~/go/go/misc/vim
+set rtp+=~/dependencies/gocode/vim
 autocmd BufRead,BufNewFile *.go set filetype=go
 
 " Python
