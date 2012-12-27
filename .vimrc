@@ -56,6 +56,8 @@ nmap <leader>z :%s#\<<c-r>=expand("<cword>")<cr>\>#
 
 " Pull Visually Highlighted text into LHS of a substitute
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+vnoremap <C-b> "hy:enew<cr>i<c-r>h<esc>:w! /tmp/pasteittobindog<cr>:!pastbinit.py < /tmp/pasteittobindog<cr>:bd<cr>
+
 
 " Jump to next buffer
 nmap <leader>n :bn<cr>
@@ -305,7 +307,7 @@ def GoToTemplate():
     if templates:
         for template in templates:
             print template
-            for p in ['movie/templates/', 'static']:
+            for p in ['movie/templates/', 'static', 'docs']:
                 filename = p+template
                 print filename
                 scss_filename = p + template[:-3] + 'scss'
