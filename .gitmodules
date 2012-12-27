@@ -49,9 +49,6 @@
 [submodule "bundle/xml.vim"]
 	path = bundle/xml.vim
 	url = git://github.com/othree/xml.vim.git
-[submodule "bundle/vim-css-color"]
-	path = bundle/vim-css-color
-	url = git://github.com/skammer/vim-css-color.git
 [submodule "bundle/vim-template"]
 	path = bundle/vim-template
 	url = git://github.com/aperezdc/vim-template.git
