@@ -56,7 +56,7 @@ nmap <leader>z :%s#\<<c-r>=expand("<cword>")<cr>\>#
 
 " Pull Visually Highlighted text into LHS of a substitute
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
-vnoremap <C-b> "hy:enew<cr>i<c-r>h<esc>:w! /tmp/pasteittobindog<cr>:!pastbinit.py < /tmp/pasteittobindog<cr>:bd<cr>
+vnoremap <C-b> "hy:enew<cr>:set paste<cr>i<c-r>h<esc>:set nopaste<cr>:w! /tmp/pasteittobindog<cr>:!pastbinit.py < /tmp/pasteittobindog<cr>:bd<cr>
 
 
 " Jump to next buffer
@@ -269,6 +269,7 @@ autocmd FileType python set smartindent cinwords=if,elif,else,for,while,with,try
 autocmd FileType python :IndentGuidesEnable
 autocmd FileType python let g:syntastic_python_checker_args = '--disable=E1101,W0611,W0614,R0401,C0103,C0322,C0111,C0324,C0301,W0142,R0913,W0622,C0323'
 autocmd BufRead *.ptl set ft=python
+autocmd BufRead *.html set ft=mako
 " Highlighten Trailing Space 
 autocmd FileType python highlight WhitespaceEOL ctermbg=red guibg=red
 autocmd FileType python match WhitespaceEOL /\s\+$/
