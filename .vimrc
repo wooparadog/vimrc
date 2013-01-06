@@ -56,7 +56,6 @@ nmap <leader>z :%s#\<<c-r>=expand("<cword>")<cr>\>#
 
 " Pull Visually Highlighted text into LHS of a substitute
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
-vnoremap <C-b> "hy:enew<cr>i<c-r>h<esc>:w! /tmp/pasteittobindog<cr>:!pastbinit.py < /tmp/pasteittobindog<cr>:bd<cr>
 
 
 " Jump to next buffer
@@ -290,32 +289,3 @@ autocmd Filetype inc set ft=php
 
 " C
 autocmd Filetype c set tags+=/home/wooparadog/.vim/tags/tags
-
-"===================================="
-"       Douban Movie Settings        "
-"===================================="
-
-python << EOF
-import vim
-from  os import path
-def GoToTemplate():
-    import re
-    strLine = vim.current.line
-    templates = re.findall(r"'(.*?)'", strLine)
-    templates.extend(re.findall(r'"(.*?)"', strLine)) 
-
-    if templates:
-        for template in templates:
-            print template
-            for p in ['movie/templates/', 'static', 'docs']:
-                filename = p+template
-                print filename
-                scss_filename = p + template[:-3] + 'scss'
-                if path.exists(filename) :
-                    vim.command("e %s" % filename) 
-                    return
-                if path.exists(scss_filename):
-                    vim.command("e %s" % scss_filename) 
-                    return
-EOF
-nnoremap <c-g> :py GoToTemplate()<CR>
