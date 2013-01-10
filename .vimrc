@@ -193,7 +193,9 @@ func GitGrepWord()
     normal! "zyiw
     call GitGrep(getreg('z'))
 endf
+
 nmap <C-x><C-x> :call GitGrepWord()<CR>
+nmap <C-x><C-c> :normal! "zyiw<CR>:Ack <c-r>z<CR>
 
 "===================================="
 "       Plugin Mapping Settings      "
@@ -210,6 +212,7 @@ let g:pep8_map='<leader>8'
 "===================================="
 
 let g:Powerline_symbols = 'fancy'
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " Template =>
 let g:templates_no_autocmd = 0
