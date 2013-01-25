@@ -1,3 +1,4 @@
+let g:shirevim#app="movie"
 set t_Co=256
 call pathogen#infect()
 
