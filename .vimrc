@@ -213,6 +213,9 @@ let g:pep8_map='<leader>8'
 "===================================="
 
 let g:Powerline_symbols = 'fancy'
+let g:pasteprg="pastbinit.py"
+let g:shirevim#app="movie"
+let g:pastemap="<c-b>"
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " Template =>
