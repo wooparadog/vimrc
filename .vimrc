@@ -215,7 +215,7 @@ let g:Powerline_symbols = 'fancy'
 let g:pasteprg="pastbinit.py"
 let g:shirevim#app="movie"
 let g:pastemap="<c-b>"
-let g:ackprg = 'ag --nogroup --nocolor --column'
+" let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " Template =>
 let g:templates_no_autocmd = 0
