@@ -216,7 +216,7 @@ let g:Powerline_symbols = 'fancy'
 let g:pasteprg="pastbinit.py"
 let g:shirevim#app="movie"
 let g:pastemap="<c-b>"
-let g:ackprg = 'ag --nogroup --nocolor --column'
+"let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " Template =>
 let g:templates_no_autocmd = 0
@@ -272,7 +272,9 @@ autocmd FileType python set makeprg=pylint\ --reports=n\ --output-format=parseab
 autocmd FileType python set errorformat=%f:%l:\ %m
 autocmd FileType python set smartindent cinwords=if,elif,else,for,while,with,try,except,finally,def,class
 autocmd FileType python :IndentGuidesEnable
-autocmd FileType python let g:syntastic_python_checker_args = '--disable=E1101,W0611,W0614,R0401,C0103,C0322,C0111,C0324,C0301,W0142,R0913,W0622,C0323'
+"autocmd FileType python let g:syntastic_python_checker_args = '--disable=E1101,W0611,W0614,R0401,C0103,C0322,C0111,C0324,C0301,W0142,R0913,W0622,C0323'
+"let g:syntastic_python_checker = 'pylint'
+let g:syntastic_python_checker = 'pyflakes'
 autocmd BufRead *.ptl set ft=python
 autocmd BufRead *.html set ft=mako
 " Highlighten Trailing Space 
