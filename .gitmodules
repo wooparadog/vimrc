@@ -58,3 +58,6 @@
 [submodule "bundle/shire_vim"]
 	path = bundle/shire_vim
 	url = http://code.dapps.douban.com/shire_vim.git
+[submodule "bundle/vim-instant-markdown"]
+	path = bundle/vim-instant-markdown
+	url = git://github.com/suan/vim-instant-markdown.git
