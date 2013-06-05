@@ -67,3 +67,6 @@
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
+[submodule "bundle/webapi-vi"]
+	path = bundle/webapi-vi
+	url = https://github.com/mattn/webapi-vim.git

@@ -33,6 +33,8 @@ set scrolloff=3             " Keep 3 context lines above and below the cursor
 set smartindent
 set tabstop=4 expandtab shiftwidth=4 softtabstop=4 
 set wildmenu
+set noshowmode
+set showcmd
 
 " Disabled Ones
 
@@ -276,6 +278,7 @@ autocmd FileType python :IndentGuidesEnable
 "let g:syntastic_python_checker = 'pylint'
 let g:syntastic_python_checker = 'pyflakes'
 autocmd BufRead *.ptl set ft=python
+autocmd BufRead *.md set ft=markdown
 autocmd BufRead *.html set ft=mako
 " Highlighten Trailing Space 
 autocmd FileType python highlight WhitespaceEOL ctermbg=red guibg=red
