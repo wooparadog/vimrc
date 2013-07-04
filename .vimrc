@@ -214,6 +214,7 @@ let g:pep8_map='<leader>8'
 "          Plugin Settings           "
 "===================================="
 
+let g:syntastic_always_populate_loc_list = 1
 let g:Powerline_symbols = 'fancy'
 let g:pasteprg="pastbinit.py"
 let g:shirevim#app="movie"
