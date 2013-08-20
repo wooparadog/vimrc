@@ -228,7 +228,7 @@ let g:template_dir = "~/.vim/templates/"
 let MRU_Max_Entries = 100
 
 let g:use_zen_complete_tag = 1
-let g:user_zen_expandabbr_key = '<c-e>'
+let g:user_emmet_expandabbr_key = '<c-e>'
 
 let g:pyflakes_use_quickfix = 0
 
