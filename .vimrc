@@ -31,7 +31,6 @@ set nocp
 set number
 set scrolloff=3             " Keep 3 context lines above and below the cursor
 set smartindent
-set tabstop=4 expandtab shiftwidth=4 softtabstop=4 
 set wildmenu
 set noshowmode
 set showcmd
@@ -256,6 +255,10 @@ let g:indent_guides_guide_size = 1
 "===================================="
 "         Filetype Settings          "
 "===================================="
+
+" ruby
+autocmd FileType ruby set tabstop=2 expandtab shiftwidth=2 softtabstop=2
+
 
 " GO
 set rtp+=~/go/go/misc/vim
