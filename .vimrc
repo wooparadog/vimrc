@@ -256,6 +256,9 @@ let g:indent_guides_guide_size = 1
 "         Filetype Settings          "
 "===================================="
 
+" default tab
+set tabstop=4 expandtab shiftwidth=4 softtabstop=4
+
 " ruby
 autocmd FileType ruby set tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
