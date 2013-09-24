@@ -255,8 +255,6 @@ let g:indent_guides_guide_size = 1
 "===================================="
 "         Filetype Settings          "
 "===================================="
-"default
-set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 
 " default tab
 set tabstop=4 expandtab shiftwidth=4 softtabstop=4
