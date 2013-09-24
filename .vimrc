@@ -21,13 +21,13 @@ set encoding=utf-8
 set fileencodings=utf-8,gb2312,gbk
 set fileencoding=utf-8
 set fileformats=unix,dos
-set history=1500
 set hls is
 set ignorecase
 set incsearch               " Incrementally search while typing a /regex
 set laststatus=2
 set mouse =n
 set nocp
+set history=1500
 set number
 set scrolloff=3             " Keep 3 context lines above and below the cursor
 set smartindent
@@ -255,6 +255,8 @@ let g:indent_guides_guide_size = 1
 "===================================="
 "         Filetype Settings          "
 "===================================="
+"default
+set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 
 " default tab
 set tabstop=4 expandtab shiftwidth=4 softtabstop=4
@@ -294,6 +296,7 @@ let g:tagbar_type_go = {
 	\ 'ctagsbin'  : 'gotags',
 	\ 'ctagsargs' : '-sort -silent'
 \ }
+autocmd FileType go set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 
 " Python
 function! MakePython()
