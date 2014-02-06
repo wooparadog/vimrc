@@ -1,4 +1,6 @@
 let g:shirevim#app="movie"
+let g:email="guohaochuan@gmail.com"
+let g:username="WooParadog"
 set t_Co=256
 call pathogen#infect()
 
@@ -218,7 +220,7 @@ let g:Powerline_symbols = 'fancy'
 let g:pasteprg="pastbinit.py"
 let g:shirevim#app="movie"
 let g:pastemap="<c-b>"
-"let g:ackprg = 'ag --nogroup --nocolor --column'
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " Template =>
 let g:templates_no_autocmd = 0
@@ -231,6 +233,7 @@ let g:use_zen_complete_tag = 1
 let g:user_emmet_expandabbr_key = '<c-e>'
 
 let g:pyflakes_use_quickfix = 0
+let g:gist_show_privates = 1
 
 "let g:tagbar_left = 1
 
@@ -334,4 +337,4 @@ autocmd Filetype php set errorformat=%m\ in\ %f\ on\ line\ %l
 autocmd Filetype inc set ft=php
 
 " C
-autocmd Filetype c set tags+=/home/wooparadog/.vim/tags/tags
+" autocmd Filetype c set tags+=/home/wooparadog/.vim/tags/tags
