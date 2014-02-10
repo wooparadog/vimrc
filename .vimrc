@@ -266,7 +266,8 @@ set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 autocmd FileType ruby set tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
 
-" GO
+" Golang
+let g:godef_split=0
 set rtp+=~/go/misc/vim
 set rtp+=~/dependencies/gocode/vim
 autocmd BufRead,BufNewFile *.go set filetype=go
