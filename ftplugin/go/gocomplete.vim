@@ -1,0 +1,1 @@
+/home/wooparadog/dependencies/gocode/vim/ftplugin/go/gocomplete.vim
