@@ -13,7 +13,7 @@ colorscheme blackbeauty ",koehler
 filetype plugin on
 filetype indent on
 
-
+set undofile
 set autoindent
 set backspace=eol,start,indent
 set completeopt=menuone,preview
