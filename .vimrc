@@ -1,4 +1,4 @@
-let g:shirevim#app="movie"
+let g:shirevim#app="movie_code"
 set t_Co=256
 call pathogen#infect()
 
@@ -166,6 +166,7 @@ func FormartSrc()
         exec "!astyle --style=gnu --suffix=none %"
     elseif &filetype == 'py'||&filetype == 'python'
         exec "r !autopep8 -i % > /dev/null 2>&1"
+        exec "!git commit % -em'Code: autopep8 %'"
     elseif &filetype == 'java'
         exec "!astyle --style=java --suffix=none %"
     elseif &filetype == 'jsp'
@@ -203,7 +204,6 @@ nmap <C-x><C-c> :normal! "zyiw<CR>:Ack <c-r>z<CR>
 "       Plugin Mapping Settings      "
 "===================================="
 
-map <leader>t :CtrlP<cr>
 map <F2> :NERDTreeToggle <cr>
 nnoremap <F5> :GundoToggle<CR>
 nmap <silent> <F6> :TagbarToggle<CR>
@@ -232,6 +232,8 @@ let g:user_emmet_expandabbr_key = '<c-e>'
 
 let g:pyflakes_use_quickfix = 0
 
+let g:gist_show_privates = 1
+
 "let g:tagbar_left = 1
 
 " Tab =>
@@ -251,6 +253,7 @@ let g:pydoc_cmd = "pydoc"
 " <= Pydoc
 
 let g:indent_guides_guide_size = 1
+let g:ctrlp_working_path_mode = ''
 
 "===================================="
 "         Filetype Settings          "
@@ -336,3 +339,11 @@ autocmd Filetype inc set ft=php
 
 " C
 autocmd Filetype c set tags+=/home/wooparadog/.vim/tags/tags
+
+" git commit mesg
+autocmd Filetype gitcommit set spell
+
+hi Pmenu        guifg=#00ffff guibg=#000000            ctermbg=0 ctermfg=6
+hi PmenuSel     guifg=#ffff00 guibg=#000000 gui=bold   cterm=bold ctermfg=3
+hi PmenuSbar    guibg=#204d40                          ctermbg=6
+hi PmenuThumb   guifg=#38ff56                          ctermfg=3
