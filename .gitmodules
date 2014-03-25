@@ -79,3 +79,9 @@
 [submodule "bundle/vim-rails"]
 	path = bundle/vim-rails
 	url = git@github.com:tpope/vim-rails.git
+[submodule "bundle/clang_complete"]
+	path = bundle/clang_complete
+	url = git@github.com:Rip-Rip/clang_complete.git
+[submodule "bundle/vim-godef"]
+	path = bundle/vim-godef
+	url = git@github.com:dgryski/vim-godef.git
