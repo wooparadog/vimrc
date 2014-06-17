@@ -1,8 +1,11 @@
+
 let g:shirevim#app="movie_code"
 let g:email="guohaochuan@gmail.com"
 let g:username="WooParadog"
 set t_Co=256
 call pathogen#infect()
+
+set shell=bash
 
 "===================================="
 "           Basic Settings           "
@@ -13,29 +16,29 @@ colorscheme blackbeauty ",koehler
 filetype plugin on
 filetype indent on
 
-set undofile
 set autoindent
 set backspace=eol,start,indent
 set completeopt=menuone,preview
 set cul "cuc
 set cursorline              " have a line indicate the cursor location
 set encoding=utf-8
-set fileencodings=utf-8,gb2312,gbk
 set fileencoding=utf-8
+set fileencodings=utf-8,gb2312,gbk
 set fileformats=unix,dos
+set history=1500
 set hls is
 set ignorecase
 set incsearch               " Incrementally search while typing a /regex
 set laststatus=2
 set mouse =n
 set nocp
-set history=1500
+set noshowmode
 set number
 set scrolloff=3             " Keep 3 context lines above and below the cursor
-set smartindent
-set wildmenu
-set noshowmode
 set showcmd
+set smartindent
+set undofile
+set wildmenu
 
 " Disabled Ones
 

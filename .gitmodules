@@ -85,3 +85,9 @@
 [submodule "bundle/vim-godef"]
 	path = bundle/vim-godef
 	url = git@github.com:dgryski/vim-godef.git
+[submodule "bundle/cmdlinecomplete"]
+	path = bundle/cmdlinecomplete
+	url = git@github.com:menghan/CmdlineComplete.git
+[submodule "bundle/vim-virtualenv"]
+	path = bundle/vim-virtualenv
+	url = git@github.com:jmcantrell/vim-virtualenv.git
