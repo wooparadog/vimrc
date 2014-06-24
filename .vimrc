@@ -40,6 +40,8 @@ set smartindent
 set undofile
 set wildmenu
 
+set undodir=$HOME/.vim/undo
+
 " Disabled Ones
 
 " Y-N-C prompt if closing with unsaved changes.
@@ -271,6 +273,8 @@ set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 " ruby
 autocmd FileType ruby set tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
+" yaml
+autocmd FileType yaml set tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
 " Golang
 let g:godef_split=0
@@ -325,6 +329,7 @@ let g:syntastic_python_checker = 'pyflakes'
 autocmd BufRead *.ptl set ft=python
 autocmd BufRead *.md set ft=markdown
 autocmd BufRead *.html set ft=mako
+autocmd BufRead *.sls set ft=yaml
 " Highlighten Trailing Space 
 autocmd FileType python highlight WhitespaceEOL ctermbg=red guibg=red
 autocmd FileType python match WhitespaceEOL /\s\+$/
