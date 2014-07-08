@@ -41,6 +41,7 @@ set undofile
 set wildmenu
 
 set undodir=$HOME/.vim/undo
+set wildignore+=*.pyc
 
 " Disabled Ones
 
@@ -357,3 +358,6 @@ hi Pmenu        guifg=#00ffff guibg=#000000            ctermbg=0 ctermfg=6
 hi PmenuSel     guifg=#ffff00 guibg=#000000 gui=bold   cterm=bold ctermfg=3
 hi PmenuSbar    guibg=#204d40                          ctermbg=6
 hi PmenuThumb   guifg=#38ff56                          ctermfg=3
+
+" quick fix
+autocmd FileType qf wincmd J
