@@ -12,7 +12,11 @@ set shell=bash
 "===================================="
 
 syntax on
-colorscheme blackbeauty ",koehler
+if &diff
+    colorscheme industry
+else
+    colorscheme blackbeauty ",koehler
+endif
 filetype plugin on
 filetype indent on
 
@@ -324,9 +328,9 @@ autocmd FileType python set makeprg=pylint\ --reports=n\ --output-format=parseab
 autocmd FileType python set errorformat=%f:%l:\ %m
 autocmd FileType python set smartindent cinwords=if,elif,else,for,while,with,try,except,finally,def,class
 autocmd FileType python :IndentGuidesEnable
-"autocmd FileType python let g:syntastic_python_checker_args = '--disable=E1101,W0611,W0614,R0401,C0103,C0322,C0111,C0324,C0301,W0142,R0913,W0622,C0323'
+autocmd FileType python let g:syntastic_python_checker_args = '--ignore=E128'
 "let g:syntastic_python_checker = 'pylint'
-let g:syntastic_python_checker = 'pyflakes'
+let g:syntastic_python_checker = 'flake8'
 autocmd BufRead *.ptl set ft=python
 autocmd BufRead *.md set ft=markdown
 autocmd BufRead *.html set ft=mako
@@ -360,4 +364,4 @@ hi PmenuSbar    guibg=#204d40                          ctermbg=6
 hi PmenuThumb   guifg=#38ff56                          ctermfg=3
 
 " quick fix
-autocmd FileType qf wincmd J
+" autocmd FileType qf wincmd J
