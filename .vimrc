@@ -4,7 +4,7 @@ let g:email="guohaochuan@gmail.com"
 let g:username="WooParadog"
 set t_Co=256
 
-source plugins.vim
+source ~/.vim/plugins.vim
 " call pathogen#infect()
 
 set shell=bash

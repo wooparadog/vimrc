@@ -39,6 +39,10 @@ Plugin 'https://github.com/mattn/webapi-vim.git'
 Plugin 'https://github.com/sjl/gundo.vim.git'
 Plugin 'https://github.com/vim-scripts/The-NERD-tree.git'
 Plugin 'https://github.com/vim-scripts/pep8.git'
+Bundle 'Blackrush/vim-gocode'
+Plugin 'wting/rust.vim'
+
+" Plugin 'golang', {'rtp': 'bundle2/golang//'}
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
