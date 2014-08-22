@@ -3,7 +3,9 @@ let g:shirevim#app="movie_code"
 let g:email="guohaochuan@gmail.com"
 let g:username="WooParadog"
 set t_Co=256
-call pathogen#infect()
+
+source plugins.vim
+" call pathogen#infect()
 
 set shell=bash
 
@@ -267,6 +269,7 @@ let g:pydoc_cmd = "pydoc"
 
 let g:indent_guides_guide_size = 1
 let g:ctrlp_working_path_mode = ''
+let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix' ]
 
 "===================================="
 "         Filetype Settings          "
@@ -365,3 +368,4 @@ hi PmenuThumb   guifg=#38ff56                          ctermfg=3
 
 " quick fix
 " autocmd FileType qf wincmd J
+"
