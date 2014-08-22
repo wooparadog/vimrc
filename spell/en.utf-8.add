@@ -32,3 +32,5 @@ utils
 加密后的所有字段
 对高朋的接口
 syncroness
+kwds
+redis
