@@ -41,6 +41,7 @@ Plugin 'https://github.com/vim-scripts/The-NERD-tree.git'
 Plugin 'https://github.com/vim-scripts/pep8.git'
 Bundle 'Blackrush/vim-gocode'
 Plugin 'wting/rust.vim'
+Plugin 'jpythonfold.vim'
 
 " Plugin 'golang', {'rtp': 'bundle2/golang//'}
 
