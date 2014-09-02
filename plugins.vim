@@ -22,7 +22,6 @@ Plugin 'git://github.com/scrooloose/nerdcommenter.git'
 Plugin 'git://github.com/scrooloose/syntastic.git'
 Plugin 'git://github.com/suan/vim-instant-markdown.git'
 Plugin 'git://github.com/tpope/vim-surround.git'
-Plugin 'git://github.com/vim-scripts/TabBar.git'
 Plugin 'git://github.com/vim-scripts/matchit.zip.git'
 Plugin 'git://github.com/vim-scripts/mru.vim.git'
 Plugin 'git://github.com/vim-scripts/word_complete.vim.git'
@@ -42,6 +41,8 @@ Plugin 'https://github.com/vim-scripts/pep8.git'
 Bundle 'Blackrush/vim-gocode'
 Plugin 'wting/rust.vim'
 Plugin 'jpythonfold.vim'
+
+Plugin 'git@github.com:wooparadog/TabBar.git'
 
 " Plugin 'golang', {'rtp': 'bundle2/golang//'}
 
