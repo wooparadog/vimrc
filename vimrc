@@ -369,3 +369,6 @@ hi PmenuThumb   guifg=#38ff56                          ctermfg=3
 " quick fix
 " autocmd FileType qf wincmd J
 "
+
+" lisp
+autocmd BufRead *.el set ft=lisp
