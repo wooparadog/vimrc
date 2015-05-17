@@ -40,6 +40,7 @@ Plugin 'vim-scripts/The-NERD-tree'
 Plugin 'vim-scripts/pep8'
 Bundle 'Blackrush/vim-gocode'
 Plugin 'wting/rust.vim'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'jpythonfold.vim'
 
 Plugin 'wooparadog/TabBar'
