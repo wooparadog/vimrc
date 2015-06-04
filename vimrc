@@ -14,6 +14,10 @@ set shell=bash
 "===================================="
 
 syntax on
+
+" http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
+let mapleader = "\<Space>"
+
 if &diff
     colorscheme industry
 else
@@ -77,6 +81,13 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 nmap <leader>n :bn<cr>
 " Jump to previous buffer
 nmap <leader>p :bp<cr>
+
+" Enter visual line mode with <Space><Space>:
+nmap <Leader><Leader> V
+
+" terryma/vim-expand-region with following mapping:
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
 
 "===================================="
 "         Advanced Settings          "
@@ -360,6 +371,10 @@ autocmd Filetype inc set ft=php
 " C
 " git commit mesg
 autocmd Filetype gitcommit set spell
+let s:clang_library_path='/Library/Developer/CommandLineTools/usr/lib'
+if isdirectory(s:clang_library_path)
+    let g:clang_library_path=s:clang_library_path
+endif
 
 hi Pmenu        guifg=#00ffff guibg=#000000            ctermbg=0 ctermfg=6
 hi PmenuSel     guifg=#ffff00 guibg=#000000 gui=bold   cterm=bold ctermfg=3
