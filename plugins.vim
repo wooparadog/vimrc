@@ -41,6 +41,8 @@ Plugin 'vim-scripts/pep8'
 Bundle 'Blackrush/vim-gocode'
 Plugin 'wting/rust.vim'
 Plugin 'jpythonfold.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'terryma/vim-expand-region'
 
 Plugin 'wooparadog/TabBar'
 
