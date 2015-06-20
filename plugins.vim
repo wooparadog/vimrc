@@ -42,6 +42,7 @@ Bundle 'Blackrush/vim-gocode'
 Plugin 'wting/rust.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'jpythonfold.vim'
+Plugin 'phildawes/racer'
 
 Plugin 'wooparadog/TabBar'
 
