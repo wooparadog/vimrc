@@ -287,7 +287,7 @@ let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix' ]
 "===================================="
 
 " default tab
-set tabstop=4 expandtab shiftwidth=4 softtabstop=4
+autocmd FileType python set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 
 " ruby
 autocmd FileType ruby set tabstop=2 expandtab shiftwidth=2 softtabstop=2
@@ -297,9 +297,9 @@ autocmd FileType yaml set tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
 " Golang
 let g:godef_split=0
-set rtp+=~/go/misc/vim
-set rtp+=~/dependencies/gocode/vim
+let g:go_fmt_command = "goimports"
 autocmd BufRead,BufNewFile *.go set filetype=go
+autocmd FileType go set noexpandtab tabstop=4
 let g:tagbar_type_go = {
 	\ 'ctagstype' : 'go',
 	\ 'kinds'     : [
@@ -327,7 +327,6 @@ let g:tagbar_type_go = {
 	\ 'ctagsbin'  : 'gotags',
 	\ 'ctagsargs' : '-sort -silent'
 \ }
-autocmd FileType go set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 
 " Python
 function! MakePython()
