@@ -106,6 +106,7 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 " Statusline =>
 set laststatus=2                            " Always hide the statusline
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w  " Format the statusline
+set lazyredraw                              " redraw only when we need to.
 
 function! CurDir()
     let curdir = substitute(getcwd(), '/Users/amir/', "~/", "g")
