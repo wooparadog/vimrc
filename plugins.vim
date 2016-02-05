@@ -42,6 +42,7 @@ Plugin 'jpythonfold.vim'
 Plugin 'phildawes/racer'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'terryma/vim-expand-region'
+Plugin 'mmozuras/vim-github-comment'
 Plugin 'fatih/vim-go'
 
 Plugin 'wooparadog/TabBar'
