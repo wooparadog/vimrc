@@ -15,7 +15,6 @@ Plugin 'aperezdc/vim-template'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'mattn/gist-vim'
-Plugin 'msanders/snipmate.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'othree/xml.vim'
 Plugin 'scrooloose/nerdcommenter'
@@ -44,6 +43,14 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'terryma/vim-expand-region'
 Plugin 'mmozuras/vim-github-comment'
 Plugin 'fatih/vim-go'
+
+" {{{ snippets
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+" Optional
+Plugin 'honza/vim-snippets'
+" }}}
 
 Plugin 'wooparadog/TabBar'
 
