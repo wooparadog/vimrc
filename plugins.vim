@@ -10,7 +10,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'Lokaltog/vim-powerline'
+Plugin 'vim-airline/vim-airline'
 Plugin 'aperezdc/vim-template'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
