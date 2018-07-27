@@ -298,7 +298,6 @@ autocmd FileType yaml set tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
 " Golang
 let g:godef_split=0
-let g:go_fmt_command = "goimports"
 autocmd BufRead,BufNewFile *.go set filetype=go
 autocmd FileType go set noexpandtab tabstop=4
 let g:tagbar_type_go = {
