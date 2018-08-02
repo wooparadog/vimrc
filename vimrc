@@ -298,6 +298,7 @@ autocmd FileType yaml set tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
 " Golang
 let g:godef_split=0
+let g:go_fmt_command = "goimports"
 autocmd BufRead,BufNewFile *.go set filetype=go
 autocmd FileType go set noexpandtab tabstop=4
 let g:tagbar_type_go = {
@@ -370,10 +371,6 @@ autocmd Filetype inc set ft=php
 " C
 " git commit mesg
 autocmd Filetype gitcommit set spell
-let s:clang_library_path='/Library/Developer/CommandLineTools/usr/lib'
-if isdirectory(s:clang_library_path)
-    let g:clang_library_path=s:clang_library_path
-endif
 
 hi Pmenu        guifg=#00ffff guibg=#000000            ctermbg=0 ctermfg=6
 hi PmenuSel     guifg=#ffff00 guibg=#000000 gui=bold   cterm=bold ctermfg=3
