@@ -295,6 +295,11 @@ autocmd FileType ruby set tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
 " yaml
 autocmd FileType yaml set tabstop=2 expandtab shiftwidth=2 softtabstop=2
+:
+" C++:
+autocmd FileType cpp nnoremap <buffer> <silent> gd :call g:ClangGotoDeclaration() <cr>
+autocmd FileType cpp set path+=/home/wooparadog/Codes/github.com/eosio/eos/contracts
+
 
 " Golang
 let g:godef_split=0
