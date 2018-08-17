@@ -301,6 +301,7 @@ autocmd FileType yaml set tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
 " C++:
 autocmd FileType cpp nnoremap <buffer> <silent> gd :call g:ClangGotoDeclaration() <cr>
+autocmd FileType cpp set tabstop=2 expandtab shiftwidth=2 softtabstop=2
 autocmd FileType cpp set path+=/usr/local/eosio.wasmsdk/include/
 
 if has('mac')
