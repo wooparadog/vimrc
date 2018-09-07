@@ -298,10 +298,10 @@ autocmd FileType cmake set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 
 " yaml
 autocmd FileType yaml set tabstop=2 expandtab shiftwidth=2 softtabstop=2
-
+"
 " C++:
 autocmd FileType cpp nnoremap <buffer> <silent> gd :call g:ClangGotoDeclaration() <cr>
-autocmd FileType cpp set tabstop=2 expandtab shiftwidth=2 softtabstop=2
+autocmd FileType cpp set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 autocmd FileType cpp set path+=/usr/local/eosio.wasmsdk/include/
 
 if has('mac')
@@ -318,6 +318,8 @@ endif
 
 let g:clang_complete_macros = 1
 let g:clang_complete_patterns=1
+let g:syntastic_clang_check_config_file = ".clang_complete"
+let g:syntastic_cpp_checkers = ["clang_check"]
 
 
 " Golang
@@ -368,7 +370,7 @@ autocmd FileType python set smartindent cinwords=if,elif,else,for,while,with,try
 autocmd FileType python :IndentGuidesEnable
 autocmd FileType python let g:syntastic_python_checker_args = '--ignore=E128'
 "let g:syntastic_python_checker = 'pylint'
-let g:syntastic_python_checker = 'flake8'
+let g:syntastic_python_checkers = ['flake8', 'pylint']
 autocmd BufRead *.ptl set ft=python
 autocmd BufRead *.md set ft=markdown
 autocmd BufRead *.html set ft=mako
