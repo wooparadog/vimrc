@@ -22,6 +22,8 @@ if &diff
     colorscheme industry
 else
     colorscheme blackbeauty ",koehler
+    " let g:sierra_Sunset = 1
+    " colorscheme sierra
 endif
 filetype plugin on
 filetype indent on
@@ -290,6 +292,9 @@ let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix' ]
 " default tab
 autocmd FileType python set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 
+" javascript
+autocmd FileType javascript set tabstop=2 expandtab shiftwidth=2 softtabstop=2
+
 " ruby
 autocmd FileType ruby set tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
@@ -325,6 +330,7 @@ let g:syntastic_cpp_checkers = ["clang_check"]
 " Golang
 let g:godef_split=0
 let g:go_fmt_command = "goimports"
+let g:go_gocode_propose_builtins = 0 " Stupid vim-go
 autocmd BufRead,BufNewFile *.go set filetype=go
 autocmd FileType go set noexpandtab tabstop=4
 let g:tagbar_type_go = {
@@ -361,7 +367,7 @@ function! MakePython()
 	execute "normal :"
 	execute "copen"
 endfunction
-
+let g:python_highlight_all = 1
 autocmd FileType python map <F4> :call MakePython()<CR>
 autocmd FileType python set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 autocmd FileType python set makeprg=pylint\ --reports=n\ --output-format=parseable\ --disable=E1101,W0611,W0614,R0401,C0103,C0322,C0111,C0324,C0301,W0142,R0913,W0622,C0323\ %:p
@@ -372,7 +378,11 @@ autocmd FileType python let g:syntastic_python_checker_args = '--ignore=E128'
 "let g:syntastic_python_checker = 'pylint'
 let g:syntastic_python_checkers = ['flake8', 'pylint']
 autocmd BufRead *.ptl set ft=python
+
+" Markdown
 autocmd BufRead *.md set ft=markdown
+autocmd FileType markdown set tabstop=4 expandtab shiftwidth=4 softtabstop=4
+
 autocmd BufRead *.html set ft=mako
 autocmd BufRead *.sls set ft=yaml
 " Highlighten Trailing Space 

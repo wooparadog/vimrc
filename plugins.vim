@@ -11,6 +11,8 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-python/python-syntax'
+Plugin 'AlessandroYorba/Sierra'
 Plugin 'aperezdc/vim-template'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
