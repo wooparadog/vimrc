@@ -19,11 +19,22 @@ syntax on
 let mapleader = "\<Space>"
 
 if &diff
-    colorscheme industry
+  colorscheme industry
 else
-    colorscheme blackbeauty ",koehler
-    " let g:sierra_Sunset = 1
-    " colorscheme sierra
+  " if (has("nvim"))
+  "   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+  "   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  " endif
+  " "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  " "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  " if (has("termguicolors"))
+  "   set termguicolors
+  " endif
+  " colorscheme onedark
+  " colorscheme blackbeauty ",koehler
+  " let g:sierra_Sunset = 1
+  " colorscheme sierra
 endif
 filetype plugin on
 filetype indent on
@@ -376,8 +387,11 @@ autocmd FileType python set smartindent cinwords=if,elif,else,for,while,with,try
 autocmd FileType python :IndentGuidesEnable
 autocmd FileType python let g:syntastic_python_checker_args = '--ignore=E128'
 "let g:syntastic_python_checker = 'pylint'
-let g:syntastic_python_checkers = ['flake8', 'pylint']
+let g:syntastic_python_checkers = ['flake8']
 autocmd BufRead *.ptl set ft=python
+
+" VIM
+autocmd FileType vim set tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
 " Markdown
 autocmd BufRead *.md set ft=markdown
