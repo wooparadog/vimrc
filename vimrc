@@ -386,6 +386,9 @@ if exists("&colorcolumn")
     autocmd FileType python set colorcolumn=79
 endif
 
+" Javascript
+autocmd FileType Javascript set tabstop=2 expandtab shiftwidth=2 softtabstop=2
+
 " Php
 autocmd Filetype php set makeprg=\"php\"\ -l\ -n\ -d\ html_errors=off
 autocmd Filetype php set errorformat=%m\ in\ %f\ on\ line\ %l
