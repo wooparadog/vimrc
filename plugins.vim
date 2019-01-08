@@ -46,6 +46,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'terryma/vim-expand-region'
 Plugin 'mmozuras/vim-github-comment'
 Plugin 'fatih/vim-go'
+Plugin 'michaeljsmith/vim-indent-object'
 
 " {{{ snippets
 Plugin 'MarcWeber/vim-addon-mw-utils'
