@@ -8,10 +8,13 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'vim-airline/vim-airline'
 Plugin 'posva/vim-vue'
+Plugin 'joshdick/onedark.vim'
+Plugin 'vim-python/python-syntax'
+Plugin 'AlessandroYorba/Sierra'
 Plugin 'aperezdc/vim-template'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
@@ -44,6 +47,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'terryma/vim-expand-region'
 Plugin 'mmozuras/vim-github-comment'
 Plugin 'fatih/vim-go'
+Plugin 'michaeljsmith/vim-indent-object'
 
 " {{{ snippets
 Plugin 'MarcWeber/vim-addon-mw-utils'

@@ -19,9 +19,22 @@ syntax on
 let mapleader = "\<Space>"
 
 if &diff
-    colorscheme industry
+  colorscheme industry
 else
-    colorscheme blackbeauty ",koehler
+  " if (has("nvim"))
+  "   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+  "   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  " endif
+  " "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  " "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  " if (has("termguicolors"))
+  "   set termguicolors
+  " endif
+  " colorscheme onedark
+  " colorscheme blackbeauty ",koehler
+  " let g:sierra_Sunset = 1
+  " colorscheme sierra
 endif
 filetype plugin on
 filetype indent on
@@ -290,6 +303,9 @@ let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix' ]
 " default tab
 autocmd FileType python set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 
+" javascript
+autocmd FileType javascript set tabstop=2 expandtab shiftwidth=2 softtabstop=2
+
 " ruby
 autocmd FileType ruby set tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
@@ -298,10 +314,10 @@ autocmd FileType cmake set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 
 " yaml
 autocmd FileType yaml set tabstop=2 expandtab shiftwidth=2 softtabstop=2
-
+"
 " C++:
+autocmd FileType cpp set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 autocmd FileType cpp nnoremap <buffer> <silent> gd :call g:ClangGotoDeclaration() <cr>
-autocmd FileType cpp set path+=/home/wooparadog/Codes/github.com/eosio/eos/contracts
 let g:syntastic_clang_check_config_file = ".clang_complete"
 let g:syntastic_cpp_checkers = ["clang_check"]
 
@@ -311,6 +327,8 @@ if has('mac')
 		let g:clang_library_path=s:clang_library_path
 	endif
 elseif has('unix')
+  autocmd FileType cpp set path+=/home/wooparadog/Codes/github.com/eosio/eos/contracts
+  autocmd FileType cpp set path+=/usr/local/eosio.wasmsdk/include/
 	let s:clang_library_path='/usr/lib/'
 	if isdirectory(s:clang_library_path)
 		let g:clang_library_path=s:clang_library_path
@@ -319,11 +337,14 @@ endif
 
 let g:clang_complete_macros = 1
 let g:clang_complete_patterns=1
+let g:syntastic_clang_check_config_file = ".clang_complete"
+let g:syntastic_cpp_checkers = ["clang_check"]
 
 
 " Golang
 let g:godef_split=0
 let g:go_fmt_command = "goimports"
+let g:go_gocode_propose_builtins = 0 " Stupid vim-go
 autocmd BufRead,BufNewFile *.go set filetype=go
 autocmd FileType go set noexpandtab tabstop=4
 let g:tagbar_type_go = {
@@ -360,7 +381,7 @@ function! MakePython()
 	execute "normal :"
 	execute "copen"
 endfunction
-
+let g:python_highlight_all = 1
 autocmd FileType python map <F4> :call MakePython()<CR>
 autocmd FileType python set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 autocmd FileType python set makeprg=pylint\ --reports=n\ --output-format=parseable\ --disable=E1101,W0611,W0614,R0401,C0103,C0322,C0111,C0324,C0301,W0142,R0913,W0622,C0323\ %:p
@@ -369,9 +390,16 @@ autocmd FileType python set smartindent cinwords=if,elif,else,for,while,with,try
 autocmd FileType python :IndentGuidesEnable
 autocmd FileType python let g:syntastic_python_checker_args = '--ignore=E128'
 "let g:syntastic_python_checker = 'pylint'
-let g:syntastic_python_checker = 'flake8'
+let g:syntastic_python_checkers = ['flake8']
 autocmd BufRead *.ptl set ft=python
+
+" VIM
+autocmd FileType vim set tabstop=2 expandtab shiftwidth=2 softtabstop=2
+
+" Markdown
 autocmd BufRead *.md set ft=markdown
+autocmd FileType markdown set tabstop=4 expandtab shiftwidth=4 softtabstop=4
+
 autocmd BufRead *.html set ft=mako
 autocmd BufRead *.sls set ft=yaml
 " Highlighten Trailing Space 
