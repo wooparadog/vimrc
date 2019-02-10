@@ -378,23 +378,17 @@ let g:tagbar_type_go = {
 	\ 'ctagsargs' : '-sort -silent'
 \ }
 
+" ptl
+autocmd BufRead *.ptl set ft=python
+
 " Python
-function! MakePython()
-	execute "silent make %"
-	execute "normal :"
-	execute "copen"
-endfunction
 let g:python_highlight_all = 1
-autocmd FileType python map <F4> :call MakePython()<CR>
+
 autocmd FileType python set tabstop=4 expandtab shiftwidth=4 softtabstop=4
-autocmd FileType python set makeprg=pylint\ --reports=n\ --output-format=parseable\ --disable=E1101,W0611,W0614,R0401,C0103,C0322,C0111,C0324,C0301,W0142,R0913,W0622,C0323\ %:p
-autocmd FileType python set errorformat=%f:%l:\ %m
-autocmd FileType python set smartindent cinwords=if,elif,else,for,while,with,try,except,finally,def,class
 autocmd FileType python :IndentGuidesEnable
 autocmd FileType python let g:syntastic_python_checker_args = '--ignore=E128'
-"let g:syntastic_python_checker = 'pylint'
+autocmd FileType python nnoremap <buffer> <silent> gd :YcmCompleter GoTo <cr>
 let g:syntastic_python_checkers = ['flake8']
-autocmd BufRead *.ptl set ft=python
 
 " VIM
 autocmd FileType vim set tabstop=2 expandtab shiftwidth=2 softtabstop=2
