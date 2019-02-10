@@ -316,7 +316,7 @@ autocmd FileType cmake set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 autocmd FileType yaml set tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
 " lua
-autocmd FileType javascript set tabstop=2 expandtab shiftwidth=2 softtabstop=2
+autocmd FileType lua set tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
 " C++:
 autocmd FileType cpp set tabstop=4 expandtab shiftwidth=4 softtabstop=4
