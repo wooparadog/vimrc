@@ -10,13 +10,16 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+" Color schemes
+Plugin 'flazz/vim-colorschemes'
+Plugin 'dracula/vim'
+Plugin 'AlessandroYorba/Sierra'
+Plugin 'joshdick/onedark.vim'
+
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
-Plugin 'dracula/vim'
 Plugin 'posva/vim-vue'
-Plugin 'joshdick/onedark.vim'
 Plugin 'vim-python/python-syntax'
-Plugin 'AlessandroYorba/Sierra'
 Plugin 'aperezdc/vim-template'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'

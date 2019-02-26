@@ -31,7 +31,7 @@ else
   "   set termguicolors
   " endif
   " colorscheme onedark
-  " colorscheme blackbeauty ",koehler
+   colorscheme blackbeauty ",koehler
   " let g:sierra_Sunset = 1
   " colorscheme sierra
 endif
