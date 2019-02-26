@@ -12,6 +12,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
+Plugin 'dracula/vim'
 Plugin 'posva/vim-vue'
 Plugin 'joshdick/onedark.vim'
 Plugin 'vim-python/python-syntax'

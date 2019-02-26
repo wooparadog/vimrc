@@ -13,7 +13,6 @@ set shell=bash
 "           Basic Settings           "
 "===================================="
 
-syntax on
 
 " http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
 let mapleader = "\<Space>"
@@ -38,6 +37,7 @@ else
 endif
 filetype plugin on
 filetype indent on
+syntax on
 
 set autoindent
 set backspace=eol,start,indent
