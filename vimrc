@@ -30,8 +30,9 @@ else
   " if (has("termguicolors"))
   "   set termguicolors
   " endif
-  " colorscheme onedark
-   colorscheme blackbeauty ",koehler
+  " colorscheme 
+  colorscheme dracula "blackbeauty, onedark, koehler
+
   " let g:sierra_Sunset = 1
   " colorscheme sierra
 endif
@@ -387,7 +388,7 @@ let g:python_highlight_all = 1
 autocmd FileType python set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 autocmd FileType python :IndentGuidesEnable
 autocmd FileType python let g:syntastic_python_checker_args = '--ignore=E128'
-autocmd FileType python nnoremap <buffer> <silent> gd :YcmCompleter GoTo <cr>
+autocmd FileType python nnoremap <buffer> <silent> gd :YcmCompleter GoToDeclaration <cr>
 let g:syntastic_python_checkers = ['flake8']
 
 " VIM
