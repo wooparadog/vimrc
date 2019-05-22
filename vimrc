@@ -347,7 +347,8 @@ let g:syntastic_cpp_checkers = ["clang_check"]
 
 " Golang
 let g:godef_split=0
-let g:go_def_mode = 'godef'
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 let g:go_fmt_command = "goimports"
 let g:go_gocode_propose_builtins = 0 " Stupid vim-go
 autocmd BufRead,BufNewFile *.go set filetype=go
