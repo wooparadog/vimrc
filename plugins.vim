@@ -17,7 +17,7 @@ Plugin 'dracula/vim'
 Plugin 'AlessandroYorba/Sierra'
 Plugin 'joshdick/onedark.vim'
 
-Plugin 'wooparadog/AutoComplPop'
+" Plugin 'wooparadog/AutoComplPop'
 
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'

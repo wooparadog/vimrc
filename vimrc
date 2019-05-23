@@ -346,8 +346,10 @@ let g:syntastic_cpp_checkers = ["clang_check"]
 
 
 " Golang
+ let g:syntastic_go_checkers = ['govet', 'errcheck', 'golint']
 let g:godef_split=0
 let g:go_def_mode='gopls'
+let g:go_list_type = "quickfix"
 let g:go_info_mode='gopls'
 let g:go_fmt_command = "goimports"
 let g:go_gocode_propose_builtins = 0 " Stupid vim-go
@@ -391,17 +393,7 @@ autocmd FileType python set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 autocmd FileType python :IndentGuidesEnable
 autocmd FileType python let g:syntastic_python_checker_args = '--ignore=E128'
 autocmd FileType python nnoremap <buffer> <silent> gd :YcmCompleter GoToDeclaration <cr>
-let g:syntastic_python_checkers = ['flake8']
 
-" VIM
-autocmd FileType vim set tabstop=2 expandtab shiftwidth=2 softtabstop=2
-
-" Markdown
-autocmd BufRead *.md set ft=markdown
-autocmd FileType markdown set tabstop=4 expandtab shiftwidth=4 softtabstop=4
-
-autocmd BufRead *.html set ft=mako
-autocmd BufRead *.sls set ft=yaml
 " Highlighten Trailing Space 
 autocmd FileType python highlight WhitespaceEOL ctermbg=red guibg=red
 autocmd FileType python match WhitespaceEOL /\s\+$/
@@ -415,6 +407,17 @@ let ropevim_enable_shortcuts = 1
 if exists("&colorcolumn")
     autocmd FileType python set colorcolumn=79
 endif
+
+let g:syntastic_python_checkers = ['flake8']
+
+" VIM
+autocmd FileType vim set tabstop=2 expandtab shiftwidth=2 softtabstop=2
+
+" Other formats
+autocmd BufRead *.md set ft=markdown
+autocmd FileType markdown set tabstop=4 expandtab shiftwidth=4 softtabstop=4
+autocmd BufRead *.sls set ft=yaml
+autocmd BufRead *.html set ft=mako
 
 " Javascript
 autocmd FileType Javascript set tabstop=2 expandtab shiftwidth=2 softtabstop=2
