@@ -350,6 +350,7 @@ let g:go_def_mode='gopls'
 let g:go_list_type = "quickfix"
 let g:go_info_mode='gopls'
 let g:go_fmt_command = "goimports"
+let g:go_metalinter_command = "golangci-lint"
 let g:go_gocode_propose_builtins = 0 " Stupid vim-go
 autocmd BufRead,BufNewFile *.go set filetype=go
 autocmd FileType go set noexpandtab tabstop=4
