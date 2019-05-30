@@ -31,7 +31,7 @@ else
   "   set termguicolors
   " endif
   " colorscheme 
-  colorscheme dracula "blackbeauty, onedark, koehler
+  colorscheme koehler "blackbeauty, onedark, koehler
 
   " let g:sierra_Sunset = 1
   " colorscheme sierra
@@ -188,8 +188,6 @@ func RunSrc()
         exec "!go build -o /tmp/go_built .;/tmp/go_built"
     elseif &filetype == 'ruby'
         exec "!ruby %"
-    elseif &filetype == 'markdown'
-        exec "!markdown_py %>md_exported.html;google-chrome md_exported.html"
     endif
     exec "e! %"
 endfunc
@@ -414,10 +412,11 @@ let g:syntastic_python_checkers = ['flake8']
 autocmd FileType vim set tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
 " Other formats
-autocmd BufRead *.md set ft=markdown
-autocmd FileType markdown set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 autocmd BufRead *.sls set ft=yaml
 autocmd BufRead *.html set ft=mako
+autocmd BufRead *.md set ft=markdown
+autocmd FileType markdown set tabstop=4 expandtab shiftwidth=4 softtabstop=4
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 
 " Javascript
 autocmd FileType Javascript set tabstop=2 expandtab shiftwidth=2 softtabstop=2

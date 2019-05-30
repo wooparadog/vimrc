@@ -19,7 +19,8 @@ Plugin 'joshdick/onedark.vim'
 
 " Plugin 'wooparadog/AutoComplPop'
 
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'tpope/vim-markdown'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'posva/vim-vue'
 Plugin 'vim-python/python-syntax'
