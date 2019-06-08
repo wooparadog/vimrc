@@ -48,7 +48,6 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'mattn/webapi-vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'vim-scripts/The-NERD-tree'
-Plugin 'vim-scripts/pep8'
 Plugin 'wting/rust.vim'
 Plugin 'jpythonfold.vim'
 Plugin 'phildawes/racer'
@@ -57,6 +56,7 @@ Plugin 'terryma/vim-expand-region'
 Plugin 'mmozuras/vim-github-comment'
 Plugin 'fatih/vim-go'
 Plugin 'michaeljsmith/vim-indent-object'
+Plugin 'jlanzarotta/bufexplorer'
 
 " {{{ snippets
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -65,8 +65,6 @@ Plugin 'garbas/vim-snipmate'
 " Optional
 Plugin 'honza/vim-snippets'
 " }}}
-
-Plugin 'wooparadog/TabBar'
 
 " Plugin 'golang', {'rtp': 'bundle2/golang//'}
 

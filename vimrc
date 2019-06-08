@@ -62,7 +62,23 @@ set scrolloff=3             " Keep 3 context lines above and below the cursor
 set showcmd
 set smartindent
 set undofile
-set wildmenu
+set wildchar=<Tab> wildmenu wildmode=full
+
+" Buffers
+
+set wildcharm=<C-Z>
+nnoremap <F3> :b <C-Z>
+
+nnoremap <Leader>1 :1b!<CR>
+nnoremap <Leader>2 :2b!<CR>
+nnoremap <Leader>3 :3b!<CR>
+nnoremap <Leader>4 :4b!<CR>
+nnoremap <Leader>5 :5b!<CR>
+nnoremap <Leader>6 :6b!<CR>
+nnoremap <Leader>7 :7b!<CR>
+nnoremap <Leader>8 :8b!<CR>
+nnoremap <Leader>9 :9b!<CR>
+nnoremap <Leader>0 :10b!<CR>
 
 set undodir=$HOME/.vim/undo
 set wildignore+=*.pyc
@@ -442,3 +458,8 @@ hi PmenuThumb   guifg=#38ff56                          ctermfg=3
 
 " lisp
 autocmd BufRead *.el set ft=lisp
+let g:gundo_prefer_python3=1
+
+
+let g:airline#extensions#tabline#enabled = 1
+ let g:airline#extensions#tabline#buffer_nr_show = 1
