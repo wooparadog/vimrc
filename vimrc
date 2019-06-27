@@ -1,4 +1,3 @@
-
 let g:shirevim#app="movie_code"
 let g:email="guohaochuan@gmail.com"
 let g:username="WooParadog"
@@ -36,10 +35,13 @@ else
   " let g:sierra_Sunset = 1
   " colorscheme sierra
 endif
+
 filetype plugin on
 filetype indent on
+
 syntax on
 
+set nofoldenable
 set autoindent
 set backspace=eol,start,indent
 set completeopt=menuone,preview
@@ -360,7 +362,7 @@ let g:syntastic_cpp_checkers = ["clang_check"]
 
 
 " Golang
- let g:syntastic_go_checkers = ['govet', 'errcheck', 'golint']
+let g:syntastic_go_checkers = ['govet', 'errcheck', 'golint']
 let g:godef_split=0
 let g:go_def_mode='gopls'
 let g:go_list_type = "quickfix"
@@ -370,6 +372,7 @@ let g:go_metalinter_command = "golangci-lint"
 let g:go_gocode_propose_builtins = 0 " Stupid vim-go
 autocmd BufRead,BufNewFile *.go set filetype=go
 autocmd FileType go set noexpandtab tabstop=4
+autocmd FileType go set fdm=syntax
 let g:tagbar_type_go = {
 	\ 'ctagstype' : 'go',
 	\ 'kinds'     : [
