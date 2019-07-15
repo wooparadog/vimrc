@@ -322,6 +322,9 @@ let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix' ]
 " default tab
 autocmd FileType python set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 
+" default tab
+autocmd FileType json set tabstop=2 expandtab shiftwidth=2 softtabstop=2
+
 " javascript
 autocmd FileType javascript set tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
