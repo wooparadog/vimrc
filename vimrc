@@ -359,7 +359,15 @@ let g:clang_complete_macros = 1
 let g:clang_complete_patterns=1
 let g:syntastic_clang_check_config_file = ".clang_complete"
 let g:syntastic_cpp_checkers = ["clang_check"]
-
+" Rust
+let g:syntastic_rust_checkers = ['rustfmt']
+if executable('rls')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
+        \ 'whitelist': ['rust'],
+        \ })
+endif
 
 " Golang
 let g:syntastic_go_checkers = ['govet', 'errcheck', 'golint']
@@ -421,6 +429,8 @@ let ropevim_vim_completion = 1
 let ropevim_extended_complete = 1
 let g:ropevim_autoimport_modules = ["os", "multiprocessing"]
 let ropevim_enable_shortcuts = 1
+let ropevim_prefer_py3 = 1
+let ropevim_goto_def_newwin = 1
 
 if exists("&colorcolumn")
     autocmd FileType python set colorcolumn=79
@@ -466,4 +476,4 @@ let g:gundo_prefer_python3=1
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline_powerline_fonts = 1
+"let g:airline_powerline_fonts = 1
