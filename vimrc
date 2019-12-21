@@ -1,3 +1,4 @@
+python3 ""
 let g:shirevim#app="movie_code"
 let g:email="guohaochuan@gmail.com"
 let g:username="WooParadog"
@@ -17,7 +18,7 @@ set shell=bash
 let mapleader = "\<Space>"
 
 if &diff
-  colorscheme industry
+  colorscheme evening
 else
   " if (has("nvim"))
   "   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
@@ -372,9 +373,9 @@ endif
 " Golang
 let g:syntastic_go_checkers = ['govet', 'errcheck', 'golint']
 let g:godef_split=0
-let g:go_def_mode='gopls'
 let g:go_list_type = "quickfix"
 let g:go_info_mode='gopls'
+let g:go_def_mode='gopls'
 let g:go_fmt_command = "goimports"
 let g:go_metalinter_command = "golangci-lint"
 let g:go_gocode_propose_builtins = 0 " Stupid vim-go
