@@ -58,7 +58,6 @@ Plugin 'jlanzarotta/bufexplorer'
 Plugin 'tomlion/vim-solidity'
 Plugin 'psliwka/vim-smoothie'
 
-Plugin 'rust-lang/rust.vim'
 "Plugin 'phildawes/racer'
 "Plugin 'prabirshrestha/async.vim'
 "Plugin 'prabirshrestha/vim-lsp'
