@@ -255,7 +255,7 @@ func GitGrepWord()
 endf
 
 nmap <C-x><C-x> :call GitGrepWord()<CR>
-nmap <C-x><C-c> :normal! "zyiw<CR>:Ack <c-r>z<CR>
+nmap <C-x><C-g> :Ack<cr>
 
 "===================================="
 "       Plugin Mapping Settings      "
@@ -311,6 +311,7 @@ let g:pydoc_cmd = "pydoc"
 " <= Pydoc
 
 let g:indent_guides_guide_size = 1
+let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn|node_modules)$'
 let g:ctrlp_working_path_mode = ''
 let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix' ]
 
