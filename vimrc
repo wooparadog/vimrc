@@ -364,6 +364,7 @@ let g:clang_complete_macros = 1
 let g:clang_complete_patterns=1
 let g:syntastic_clang_check_config_file = ".clang_complete"
 let g:syntastic_cpp_checkers = ["clang_check"]
+"
 " Rust
 let g:syntastic_rust_checkers = ['rustfmt']
 if executable('rls')
@@ -372,7 +373,8 @@ if executable('rls')
         \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
         \ 'whitelist': ['rust'],
         \ })
-endif
+endif 
+let g:syntastic_rust_checkers = ['rustfmt']
 
 " Golang
 let g:syntastic_go_checkers = ['govet', 'errcheck', 'golint']
@@ -454,6 +456,7 @@ autocmd FileType markdown set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 
 " Javascript
+autocmd FileType typescriptreact set tabstop=2 expandtab shiftwidth=2 softtabstop=2
 autocmd FileType Javascript set tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
 " Php

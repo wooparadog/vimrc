@@ -20,7 +20,6 @@ Plugin 'joshdick/onedark.vim'
 " Plugin 'wooparadog/AutoComplPop'
 
 Plugin 'tpope/vim-markdown'
-" Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'posva/vim-vue'
 Plugin 'vim-python/python-syntax'
@@ -65,6 +64,14 @@ Plugin 'rust-lang/rust.vim'
 "Plugin 'prabirshrestha/vim-lsp'
 "Plugin 'prabirshrestha/asyncomplete.vim'
 "Plugin 'prabirshrestha/asyncomplete-lsp.vim'
+
+
+" Rust
+Plugin 'rust-lang/rust.vim'
+Plugin 'prabirshrestha/async.vim'
+Plugin 'prabirshrestha/vim-lsp'
+Plugin 'prabirshrestha/asyncomplete.vim'
+Plugin 'prabirshrestha/asyncomplete-lsp.vim'
 
 " {{{ snippets
 Plugin 'MarcWeber/vim-addon-mw-utils'
