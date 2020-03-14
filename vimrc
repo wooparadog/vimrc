@@ -66,6 +66,7 @@ set showcmd
 set smartindent
 set undofile
 set wildchar=<Tab> wildmenu wildmode=full
+set nowrap
 
 " Buffers
 
@@ -456,6 +457,7 @@ autocmd FileType markdown set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 
 " Javascript
+autocmd FileType typescript set tabstop=2 expandtab shiftwidth=2 softtabstop=2
 autocmd FileType typescriptreact set tabstop=2 expandtab shiftwidth=2 softtabstop=2
 autocmd FileType Javascript set tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
