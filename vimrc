@@ -456,15 +456,23 @@ autocmd BufRead *.md set ft=markdown
 autocmd FileType markdown set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 
-" Javascript
+" Typescript
+" let g:tsuquyomi_disable_quickfix = 1
 autocmd FileType typescript set tabstop=2 expandtab shiftwidth=2 softtabstop=2
 autocmd FileType typescriptreact set tabstop=2 expandtab shiftwidth=2 softtabstop=2
+let g:syntastic_typescript_checkers = ['tsuquyomi'] " You shouldn't use 'tsc' checker.
+
+" Javascript
 autocmd FileType Javascript set tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
 " Php
 autocmd Filetype php set makeprg=\"php\"\ -l\ -n\ -d\ html_errors=off
 autocmd Filetype php set errorformat=%m\ in\ %f\ on\ line\ %l
 autocmd Filetype inc set ft=php
+
+" solidity
+autocmd FileType solidity set tabstop=4 expandtab shiftwidth=4 softtabstop=4
+let g:syntastic_solidity_checkers = ["solhint"]
 
 " C
 " git commit mesg

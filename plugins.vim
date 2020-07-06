@@ -61,6 +61,7 @@ Plugin 'wooparadog/ropevim'
 " Typescript
 Plugin 'Quramy/tsuquyomi'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'prettier/vim-prettier'
 
 " Rust
 "Plugin 'phildawes/racer'
