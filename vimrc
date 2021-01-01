@@ -365,7 +365,7 @@ let g:clang_complete_macros = 1
 let g:clang_complete_patterns=1
 let g:syntastic_clang_check_config_file = ".clang_complete"
 let g:syntastic_cpp_checkers = ["clang_check"]
-"
+
 " Rust
 let g:syntastic_rust_checkers = ['rustfmt']
 if executable('rls')
@@ -385,7 +385,8 @@ let g:go_info_mode='gopls'
 let g:go_def_mode='gopls'
 let g:go_fmt_command = "goimports"
 let g:go_metalinter_command = "golangci-lint"
-let g:go_gocode_propose_builtins = 0 " Stupid vim-go
+let g:go_gocode_propose_builtins = 0
+
 autocmd BufRead,BufNewFile *.go set filetype=go
 autocmd FileType go set noexpandtab tabstop=4
 autocmd FileType go set fdm=syntax

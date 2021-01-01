@@ -57,6 +57,7 @@ Plugin 'vim-scripts/mru.vim'
 Plugin 'vim-scripts/word_complete.vim'
 Plugin 'wooparadog/ropevim'
 Plugin 'tpope/vim-eunuch'
+Plugin 'mhinz/vim-startify'
 " Plugin 'mmozuras/vim-github-comment'
 
 " Typescript
