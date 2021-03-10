@@ -87,6 +87,7 @@ nnoremap <Leader>0 :10b!<CR>
 set undodir=$HOME/.vim/undo
 set wildignore+=*.pyc
 
+
 " Disabled Ones
 
 " Y-N-C prompt if closing with unsaved changes.
@@ -277,6 +278,7 @@ let g:pasteprg="pastbinit.py"
 let g:shirevim#app="movie"
 let g:pastemap="<c-b>"
 let g:ackprg = 'ag --nogroup --nocolor --column'
+let g:startify_files_number = 20
 
 " Template =>
 let g:templates_no_autocmd = 0
