@@ -349,6 +349,9 @@ autocmd FileType cpp nnoremap <buffer> <silent> gd :call g:ClangGotoDeclaration(
 let g:syntastic_clang_check_config_file = ".clang_complete"
 let g:syntastic_cpp_checkers = ["clang_check"]
 
+" Snipmates
+let g:snipMate = { 'snippet_version' : 1 }
+
 if has('mac')
 	let s:clang_library_path='./EosioClang-prefix/src/EosioClang-build/lib/'
 	if isdirectory(s:clang_library_path)
