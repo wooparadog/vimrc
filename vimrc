@@ -225,7 +225,6 @@ func FormartSrc()
         exec "!astyle --style=gnu --suffix=none %"
     elseif &filetype == 'py'||&filetype == 'python'
         exec "r !yapf -i % > /dev/null 2>&1"
-        exec "!git commit % -em'Code: Formatting %'"
     elseif &filetype == 'java'
         exec "!astyle --style=java --suffix=none %"
     elseif &filetype == 'jsp'
@@ -461,6 +460,7 @@ autocmd BufRead *.html set ft=mako
 autocmd BufRead *.md set ft=markdown
 autocmd FileType markdown set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
+"let g:instant_markdown_python = 1
 
 " Typescript
 " let g:tsuquyomi_disable_quickfix = 1
@@ -500,4 +500,4 @@ let g:gundo_prefer_python3=1
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
-"let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
