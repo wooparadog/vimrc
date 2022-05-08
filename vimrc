@@ -257,7 +257,6 @@ let g:startify_files_number = 20
 
 " Template =>
 let g:templates_no_autocmd = 0
-let g:template_dir = "~/.vim/templates/"
 " <= Template
 
 let MRU_Max_Entries = 100
