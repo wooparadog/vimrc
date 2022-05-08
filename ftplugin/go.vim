@@ -7,7 +7,7 @@ let g:go_fmt_command = "goimports"
 let g:go_metalinter_command = "golangci-lint"
 let g:go_gocode_propose_builtins = 0
 
-set noexpandtab tabstop=4
+set noexpandtab
 set fdm=syntax
 
 let g:tagbar_type_go = {

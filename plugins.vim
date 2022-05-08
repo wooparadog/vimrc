@@ -20,7 +20,6 @@ Plug 'rafamadriz/friendly-snippets'
 " Misc
 Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the sign column. It shows which lines have been added, modified, or removed. You can also preview, stage, and undo individual hunks; and stage partial hunks. The plugin also provides a hunk text object.
 Plug 'aperezdc/vim-template'
-Plug 'fatih/vim-go'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'kien/ctrlp.vim'
