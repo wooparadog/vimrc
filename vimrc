@@ -255,10 +255,6 @@ let g:pastemap="<c-b>"
 let g:ackprg = 'ag --nogroup --nocolor --column'
 let g:startify_files_number = 20
 
-" Template =>
-let g:templates_no_autocmd = 0
-" <= Template
-
 let MRU_Max_Entries = 100
 
 let g:use_zen_complete_tag = 1

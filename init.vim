@@ -1,1 +1,1 @@
-/home/wooparadog/.vimrc
+vimrc
