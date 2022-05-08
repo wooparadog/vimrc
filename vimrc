@@ -2,13 +2,13 @@
 "           Plugin Settings          "
 "===================================="
 
-source plugins.vim
+source ~/.vim/plugins.vim
 
 "===================================="
 "           Lua Init                 "
 "===================================="
 
-source vimrc.lua
+source ~/.vim/vimrc.lua
 
 "===================================="
 "           Basic Settings           "
@@ -57,6 +57,8 @@ set wildchar=<Tab> wildmenu wildmode=full
 let g:email="guohaochuan@gmail.com"
 let g:username="WooParadog"
 
+let g:pydoc_cmd = "pydoc"
+
 " Buffers
 
 set wildcharm=<C-Z>
@@ -73,8 +75,17 @@ nnoremap <Leader>8 :8b!<CR>
 nnoremap <Leader>9 :9b!<CR>
 nnoremap <Leader>0 :10b!<CR>
 
+hi Pmenu        guifg=#00ffff guibg=#000000            ctermbg=0 ctermfg=6
+hi PmenuSel     guifg=#ffff00 guibg=#000000 gui=bold   cterm=bold ctermfg=3
+hi PmenuSbar    guibg=#204d40                          ctermbg=6
+hi PmenuThumb   guifg=#38ff56                          ctermfg=3
+
 set undodir=$HOME/.vim/undo
 set wildignore+=*.pyc
+
+" Highlighten Trailing Space
+highlight WhitespaceEOL ctermbg=red guibg=red
+match WhitespaceEOL /\s\+$/
 
 "===================================="
 "           Mapping Settings         "
@@ -113,29 +124,6 @@ autocmd BufReadPost *
     \ if line("'\"") > 1 && line("'\"") <= line("$") |
     \   exe "normal! g`\"" |
     \ endif
-
-" close preview window automatically when we move around
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
-" Statusline =>
-set laststatus=2                            " Always hide the statusline
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w  " Format the statusline
-set lazyredraw                              " redraw only when we need to.
-
-function! CurDir()
-    let curdir = substitute(getcwd(), '/Users/amir/', "~/", "g")
-    return curdir
-endfunction
-
-function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    else
-        return ''
-    endif
-endfunction
-" <= Statusline
 
 " Really useful!
 " In visual mode when you press * or # to search for the current selection
@@ -242,10 +230,9 @@ nmap <C-x><C-g> :Ack<cr>
 "       Plugin Mapping Settings      "
 "===================================="
 
-map <F2> :NERDTreeToggle <cr>
-nnoremap <F5> :GundoToggle<CR>
-nmap <silent> <F6> :TagbarToggle<CR>
-let g:pep8_map='<leader>8'
+map <F2> :NERDTreeToggle<CR>
+map <F5> :GundoToggle<CR>
+map <F6> :TagbarToggle<CR>
 
 "===================================="
 "          Plugin Settings           "
@@ -253,9 +240,6 @@ let g:pep8_map='<leader>8'
 
 let g:syntastic_always_populate_loc_list = 1
 let g:Powerline_symbols = 'fancy'
-let g:pasteprg="pastbinit.py"
-let g:shirevim#app="movie"
-let g:pastemap="<c-b>"
 let g:ackprg = 'ag --nogroup --nocolor --column'
 let g:startify_files_number = 20
 
@@ -263,21 +247,16 @@ let g:templates_directory = ["~/.vim/templates/"]
 
 let MRU_Max_Entries = 100
 
-let g:use_zen_complete_tag = 1
 let g:user_emmet_expandabbr_key = '<c-e>'
 
 let g:pyflakes_use_quickfix = 0
 let g:gist_show_privates = 1
 
-let g:gist_show_privates = 1
-
-"let g:tagbar_left = 1
-
 " Tab =>
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1 
+let g:miniBufExplModSelTarget = 1
 
 let g:Tb_SplitToEdge = 1
 let g:Tb_UseSingleClick = 1
@@ -285,8 +264,6 @@ let g:Tb_MaxSize = 5
 " <= Tab
 
 " Pydoc in normal mode, upper 'K' show pydoc =>
-let g:pydiction_location = '~/.vim/ftplugin/python/complete-dict'
-let g:pydoc_cmd = "pydoc" 
 " <= Pydoc
 
 let g:indent_guides_guide_size = 1
@@ -294,188 +271,12 @@ let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn|node_modules)$'
 let g:ctrlp_working_path_mode = ''
 let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix' ]
 
-"===================================="
-"         Filetype Settings          "
-"===================================="
-
-" default tab
-autocmd FileType python set tabstop=4 expandtab shiftwidth=4 softtabstop=4
-
-" default tab
-autocmd FileType json set tabstop=2 expandtab shiftwidth=2 softtabstop=2
-
-" javascript
-autocmd FileType javascript set tabstop=2 expandtab shiftwidth=2 softtabstop=2
-
-" ruby
-autocmd FileType ruby set tabstop=2 expandtab shiftwidth=2 softtabstop=2
-
-" cmake
-autocmd FileType cmake set tabstop=4 expandtab shiftwidth=4 softtabstop=4
-
-" yaml
-autocmd FileType yaml set tabstop=2 expandtab shiftwidth=2 softtabstop=2
-
-" lua
-autocmd FileType lua set tabstop=2 expandtab shiftwidth=2 softtabstop=2
-
-" C++:
-autocmd FileType cpp set tabstop=4 expandtab shiftwidth=4 softtabstop=4
-autocmd FileType cpp nnoremap <buffer> <silent> gd :call g:ClangGotoDeclaration() <cr>
-let g:syntastic_clang_check_config_file = ".clang_complete"
-let g:syntastic_cpp_checkers = ["clang_check"]
-
-if has('mac')
-	let s:clang_library_path='./EosioClang-prefix/src/EosioClang-build/lib/'
-	if isdirectory(s:clang_library_path)
-		let g:clang_library_path=s:clang_library_path
-	endif
-elseif has('unix')
-  autocmd FileType cpp set path+=/home/wooparadog/Codes/github.com/eosio/eos/contracts
-  autocmd FileType cpp set path+=/usr/local/eosio.wasmsdk/include/
-	let s:clang_library_path='/usr/lib/'
-	if isdirectory(s:clang_library_path)
-		let g:clang_library_path=s:clang_library_path
-	endif
-endif
-
-let g:clang_complete_macros = 1
-let g:clang_complete_patterns=1
-let g:syntastic_clang_check_config_file = ".clang_complete"
-let g:syntastic_cpp_checkers = ["clang_check"]
-
-" Rust
-let g:syntastic_rust_checkers = ['rustfmt']
-if executable('rls')
-  au User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
-        \ 'whitelist': ['rust'],
-        \ })
-endif 
-let g:syntastic_rust_checkers = ['rustfmt']
-
-" Golang
-let g:syntastic_go_checkers = ['govet', 'errcheck', 'golint']
-let g:godef_split=0
-let g:go_list_type = "quickfix"
-let g:go_info_mode='gopls'
-let g:go_def_mode='gopls'
-let g:go_fmt_command = "goimports"
-let g:go_metalinter_command = "golangci-lint"
-let g:go_gocode_propose_builtins = 0
-
-autocmd BufRead,BufNewFile *.go set filetype=go
-autocmd FileType go set noexpandtab tabstop=4
-autocmd FileType go set fdm=syntax
-let g:tagbar_type_go = {
-	\ 'ctagstype' : 'go',
-	\ 'kinds'     : [
-		\ 'p:package',
-		\ 'i:imports:1',
-		\ 'c:constants',
-		\ 'v:variables',
-		\ 't:types',
-		\ 'n:interfaces',
-		\ 'w:fields',
-		\ 'e:embedded',
-		\ 'm:methods',
-		\ 'r:constructor',
-		\ 'f:functions'
-	\ ],
-	\ 'sro' : '.',
-	\ 'kind2scope' : {
-		\ 't' : 'ctype',
-		\ 'n' : 'ntype'
-	\ },
-	\ 'scope2kind' : {
-		\ 'ctype' : 't',
-		\ 'ntype' : 'n'
-	\ },
-	\ 'ctagsbin'  : 'gotags',
-	\ 'ctagsargs' : '-sort -silent'
-\ }
-
-" ptl
-autocmd BufRead *.ptl set ft=python
-
-" Python
-let g:python_highlight_all = 1
-
-autocmd FileType python set tabstop=4 expandtab shiftwidth=4 softtabstop=4
-autocmd FileType python :IndentGuidesEnable
-autocmd FileType python let g:syntastic_python_checker_args = '--ignore=E128'
-autocmd FileType python nnoremap <buffer> <silent> gd :YcmCompleter GoToDeclaration <cr>
-
-" Highlighten Trailing Space 
-autocmd FileType python highlight WhitespaceEOL ctermbg=red guibg=red
-autocmd FileType python match WhitespaceEOL /\s\+$/
-
-" Python Rope AutoComplete
-let ropevim_vim_completion = 1
-let ropevim_extended_complete = 1
-let g:ropevim_autoimport_modules = ["os", "multiprocessing"]
-let ropevim_enable_shortcuts = 1
-let ropevim_prefer_py3 = 1
-let ropevim_goto_def_newwin = 1
-
-if exists("&colorcolumn")
-    autocmd FileType python set colorcolumn=79
-endif
-
-let g:syntastic_python_checkers = ['flake8']
-
-" VIM
-autocmd FileType vim set tabstop=2 expandtab shiftwidth=2 softtabstop=2
-
-" Other formats
-autocmd BufRead *.sls set ft=yaml
-autocmd BufRead *.html set ft=mako
-autocmd BufRead *.md set ft=markdown
-autocmd FileType markdown set tabstop=4 expandtab shiftwidth=4 softtabstop=4
-let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
-"let g:instant_markdown_python = 1
-
-" Typescript
-" let g:tsuquyomi_disable_quickfix = 1
-autocmd FileType typescript set tabstop=2 expandtab shiftwidth=2 softtabstop=2
-autocmd FileType typescriptreact set tabstop=2 expandtab shiftwidth=2 softtabstop=2
-let g:syntastic_typescript_checkers = ['tsuquyomi'] " You shouldn't use 'tsc' checker.
-
-" Javascript
-autocmd FileType Javascript set tabstop=2 expandtab shiftwidth=2 softtabstop=2
-
-" Php
-autocmd Filetype php set makeprg=\"php\"\ -l\ -n\ -d\ html_errors=off
-autocmd Filetype php set errorformat=%m\ in\ %f\ on\ line\ %l
-autocmd Filetype inc set ft=php
-
-" solidity
-autocmd FileType solidity set tabstop=4 expandtab shiftwidth=4 softtabstop=4
-let g:syntastic_solidity_checkers = ["solhint"]
-
-" C
-" git commit mesg
-autocmd Filetype gitcommit set spell
-
-hi Pmenu        guifg=#00ffff guibg=#000000            ctermbg=0 ctermfg=6
-hi PmenuSel     guifg=#ffff00 guibg=#000000 gui=bold   cterm=bold ctermfg=3
-hi PmenuSbar    guibg=#204d40                          ctermbg=6
-hi PmenuThumb   guifg=#38ff56                          ctermfg=3
-
-" quick fix
-" autocmd FileType qf wincmd J
-"
-
-" lisp
-autocmd BufRead *.el set ft=lisp
 let g:gundo_prefer_python3=1
 
 " airline
-"let g:airline#extensions#tabline#enabled = 1
-"let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
 "let g:airline_powerline_fonts = 1
-
 
 " Snip
 " Expand
@@ -498,3 +299,13 @@ nmap        s   <Plug>(vsnip-select-text)
 xmap        s   <Plug>(vsnip-select-text)
 nmap        S   <Plug>(vsnip-cut-text)
 xmap        S   <Plug>(vsnip-cut-text)
+
+"===================================="
+"         Filetype Settings          "
+"===================================="
+
+" Filetypes
+autocmd BufRead,BufNewFile *.go set filetype=go
+autocmd BufRead *.sls set ft=yaml
+autocmd BufRead *.html set ft=mako
+autocmd BufRead *.md set ft=markdown
