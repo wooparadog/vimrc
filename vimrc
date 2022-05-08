@@ -132,7 +132,7 @@ vnoremap <silent> # :call VisualSearch('b')<CR>
 
 " When you press gv you vimgrep after the selected text
 vnoremap <silent> gv :call VisualSearch('gv')<CR>
-map <leader>g :vimgrep // **/*.<left><left><left><left><left><left><left> 
+map <leader>g :vimgrep // **/*.<left><left><left><left><left><left><left>
 
 function! CmdLine(str)
     exe "menu Foo.Bar :" . a:str
@@ -239,34 +239,14 @@ map <F6> :TagbarToggle<CR>
 "===================================="
 
 let g:syntastic_always_populate_loc_list = 1
-let g:Powerline_symbols = 'fancy'
 let g:ackprg = 'ag --nogroup --nocolor --column'
 let g:startify_files_number = 20
-
 let g:templates_directory = ["~/.vim/templates/"]
-
 let MRU_Max_Entries = 100
-
 let g:user_emmet_expandabbr_key = '<c-e>'
-
-let g:pyflakes_use_quickfix = 0
 let g:gist_show_privates = 1
-
-" Tab =>
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-
-let g:Tb_SplitToEdge = 1
-let g:Tb_UseSingleClick = 1
-let g:Tb_MaxSize = 5
-" <= Tab
-
-" Pydoc in normal mode, upper 'K' show pydoc =>
-" <= Pydoc
-
 let g:indent_guides_guide_size = 1
+
 let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn|node_modules)$'
 let g:ctrlp_working_path_mode = ''
 let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix' ]
@@ -276,7 +256,7 @@ let g:gundo_prefer_python3=1
 " airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
-"let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
 
 " Snip
 " Expand
