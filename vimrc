@@ -255,6 +255,8 @@ let g:pastemap="<c-b>"
 let g:ackprg = 'ag --nogroup --nocolor --column'
 let g:startify_files_number = 20
 
+let g:templates_directory = ["~/.vim/templates/"]
+
 let MRU_Max_Entries = 100
 
 let g:use_zen_complete_tag = 1
