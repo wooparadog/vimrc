@@ -299,13 +299,3 @@ nmap        s   <Plug>(vsnip-select-text)
 xmap        s   <Plug>(vsnip-select-text)
 nmap        S   <Plug>(vsnip-cut-text)
 xmap        S   <Plug>(vsnip-cut-text)
-
-"===================================="
-"         Filetype Settings          "
-"===================================="
-
-" Filetypes
-autocmd BufRead,BufNewFile *.go set filetype=go
-autocmd BufRead *.sls set ft=yaml
-autocmd BufRead *.html set ft=mako
-autocmd BufRead *.md set ft=markdown
