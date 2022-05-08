@@ -1,4 +1,5 @@
 call plug#begin()
+
 " Color schemes
 Plug 'flazz/vim-colorschemes'
 Plug 'dracula/vim'
