@@ -3,7 +3,7 @@ let s:monkey_terminal_buffer = -1
 let s:monkey_terminal_job_id = -1
 let s:monkey_terminal_window_size = -1
 
-function! MonkeyTerminalOpen()
+function! terminal#open()
   " Check if buffer exists, if not create a window and a buffer
   if !bufexists(s:monkey_terminal_buffer)
     " Creates a window call monkey_terminal
@@ -38,13 +38,13 @@ endfunction
 
 function! terminal#toggle()
   if win_gotoid(s:monkey_terminal_window)
-    call MonkeyTerminalClose()
+    call terminal#close()
   else
-    call MonkeyTerminalOpen()
+    call terminal#open()
   endif
 endfunction
 
-function! MonkeyTerminalClose()
+function! terminal#close()
   if win_gotoid(s:monkey_terminal_window)
     let s:monkey_terminal_window_size = winheight(s:monkey_terminal_window)
     " close the current window
@@ -54,7 +54,7 @@ endfunction
 
 function! MonkeyTerminalExec(cmd)
   if !win_gotoid(s:monkey_terminal_window)
-    call MonkeyTerminalOpen()
+    call terminal#open()
   endif
 
   " clear current input

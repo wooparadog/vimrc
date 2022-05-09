@@ -135,7 +135,6 @@ vnoremap <silent> # :call VisualSearch('b')<CR>
 
 " When you press gv you vimgrep after the selected text
 vnoremap <silent> gv :call VisualSearch('gv')<CR>
-map <leader>g :vimgrep // **/*.<left><left><left><left><left><left><left>
 
 function! CmdLine(str)
     exe "menu Foo.Bar :" . a:str
@@ -172,7 +171,7 @@ func RunSrc()
         exec "r !astyle --style=ansi --one-line=keep-statements -a --suffix=none %> /dev/null 2>&1"
     elseif &filetype == 'perl'
         exec "!astyle --style=gnu --suffix=none %"
-    elseif &filetype == 'py'||&filetype == 'python'
+    elseif &filetype == 'py' || &filetype == 'python'
         exec "!PYTHONPATH="." python %"
     elseif &filetype == 'java'
         exec "!astyle --style=java --suffix=none %"
@@ -233,9 +232,9 @@ nmap <C-x><C-g> :Ack<cr>
 "       Plugin Mapping Settings      "
 "===================================="
 
-map <F2> :NERDTreeToggle<CR>
-map <F5> :GundoToggle<CR>
-map <F6> :TagbarToggle<CR>
+nnoremap <F2> :NERDTreeToggle<CR>
+nnoremap <F5> :GundoToggle<CR>
+nnoremap <F6> :TagbarToggle<CR>
 nnoremap <F7> :call terminal#toggle()<CR>
 tnoremap <F7> <C-\><C-n>:call terminal#toggle()<cr>
 
