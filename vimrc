@@ -53,6 +53,7 @@ set showcmd
 set smartindent
 set undofile
 set wildchar=<Tab> wildmenu wildmode=full
+set expandtab tabstop=4 shiftwidth=4 softtabstop=4
 
 let g:email="guohaochuan@gmail.com"
 let g:username="WooParadog"
