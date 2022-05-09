@@ -50,4 +50,6 @@ Plug 'vim-scripts/word_complete.vim'
 Plug 'tpope/vim-eunuch'
 Plug 'mhinz/vim-startify'
 
+Plug 'codeindulgence/vim-tig'
+
 call plug#end()

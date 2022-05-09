@@ -87,6 +87,9 @@ set wildignore+=*.pyc
 highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
 
+autocmd TermOpen * setlocal nonumber norelativenumber
+autocmd TermOpen * startinsert
+
 "===================================="
 "           Mapping Settings         "
 "===================================="
@@ -233,6 +236,8 @@ nmap <C-x><C-g> :Ack<cr>
 map <F2> :NERDTreeToggle<CR>
 map <F5> :GundoToggle<CR>
 map <F6> :TagbarToggle<CR>
+nnoremap <F7> :call terminal#toggle()<CR>
+tnoremap <F7> <C-\><C-n>:call terminal#toggle()<cr>
 
 "===================================="
 "          Plugin Settings           "
@@ -257,6 +262,9 @@ let g:gundo_prefer_python3=1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_powerline_fonts = 1
+
+" Tig
+let g:tig_default_command = ''
 
 " Snip
 " Expand
