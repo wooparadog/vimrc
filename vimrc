@@ -29,6 +29,7 @@ let g:username="WooParadog"
 " Highlighten Trailing Space
 highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
+highlight Normal guibg=NONE
 
 autocmd TermOpen * setlocal nonumber norelativenumber
 autocmd TermOpen * startinsert

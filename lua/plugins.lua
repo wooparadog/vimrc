@@ -69,8 +69,9 @@ require('lspconfig').gopls.setup{}
 -- Others
 require('nvim-tree').setup{}
 require('gitsigns').setup()
-require('feline').setup()
 require("bufferline").setup{}
+require("nvim-gps").setup()
+require('statusline')
 
 -- treesitter
 require'nvim-treesitter.configs'.setup {

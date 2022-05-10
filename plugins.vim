@@ -8,6 +8,7 @@ Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'feline-nvim/feline.nvim'
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'smiteshp/nvim-gps'
 
 " Color schemes
 Plug 'flazz/vim-colorschemes'
