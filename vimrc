@@ -8,7 +8,7 @@ source ~/.vim/plugins.vim
 "           Lua Init                 "
 "===================================="
 
-source ~/.vim/vimrc.lua
+source ~/.vim/lua/init.lua
 
 "===================================="
 "           Basic Settings           "
