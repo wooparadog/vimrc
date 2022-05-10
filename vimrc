@@ -16,73 +16,15 @@ source ~/.vim/vimrc.lua
 
 let mapleader = "\<Space>"
 
-if &diff
-  colorscheme evening
-else
-  colorscheme koehler "blackbeauty, onedark, koehler
-endif
+colorscheme evening
 
 filetype plugin on
 filetype indent on
 
 syntax on
 
-set autoindent
-set backspace=eol,start,indent
-set completeopt=menuone,preview
-set cul "cuc
-set cursorline              " have a line indicate the cursor location
-set encoding=utf-8
-set fileencoding=utf-8
-set fileencodings=utf-8,gb2312,gbk
-set fileformats=unix,dos
-set history=1500
-set hls is
-set ignorecase
-set incsearch               " Incrementally search while typing a /regex
-set laststatus=2
-set mouse =n
-set nocp
-set nofoldenable
-set noshowmode
-set nowrap
-set number
-set scrolloff=3             " Keep 3 context lines above and below the cursor
-set shell=zsh
-set showcmd
-set smartindent
-set undofile
-set wildchar=<Tab> wildmenu wildmode=full
-set expandtab tabstop=4 shiftwidth=4 softtabstop=4
-
 let g:email="guohaochuan@gmail.com"
 let g:username="WooParadog"
-
-let g:pydoc_cmd = "pydoc"
-
-" Buffers
-
-set wildcharm=<C-Z>
-nnoremap <F3> :b <C-Z>
-
-nnoremap <Leader>1 :1b!<CR>
-nnoremap <Leader>2 :2b!<CR>
-nnoremap <Leader>3 :3b!<CR>
-nnoremap <Leader>4 :4b!<CR>
-nnoremap <Leader>5 :5b!<CR>
-nnoremap <Leader>6 :6b!<CR>
-nnoremap <Leader>7 :7b!<CR>
-nnoremap <Leader>8 :8b!<CR>
-nnoremap <Leader>9 :9b!<CR>
-nnoremap <Leader>0 :10b!<CR>
-
-hi Pmenu        guifg=#00ffff guibg=#000000            ctermbg=0 ctermfg=6
-hi PmenuSel     guifg=#ffff00 guibg=#000000 gui=bold   cterm=bold ctermfg=3
-hi PmenuSbar    guibg=#204d40                          ctermbg=6
-hi PmenuThumb   guifg=#38ff56                          ctermfg=3
-
-set undodir=$HOME/.vim/undo
-set wildignore+=*.pyc
 
 " Highlighten Trailing Space
 highlight WhitespaceEOL ctermbg=red guibg=red
@@ -107,17 +49,8 @@ nmap <leader>z :%s#\<<c-r>=expand("<cword>")<cr>\>#
 " Pull Visually Highlighted text into LHS of a substitute
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
-" Jump to next buffer
-nmap <leader>n :bn<cr>
-" Jump to previous buffer
-nmap <leader>p :bp<cr>
-
 " Enter visual line mode with <Space><Space>:
 nmap <Leader><Leader> V
-
-" terryma/vim-expand-region with following mapping:
-vmap v <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
 
 "===================================="
 "         Advanced Settings          "
@@ -131,18 +64,6 @@ autocmd BufReadPost *
 
 " Really useful!
 " In visual mode when you press * or # to search for the current selection
-vnoremap <silent> * :call VisualSearch('f')<CR>
-vnoremap <silent> # :call VisualSearch('b')<CR>
-
-" When you press gv you vimgrep after the selected text
-vnoremap <silent> gv :call VisualSearch('gv')<CR>
-
-function! CmdLine(str)
-    exe "menu Foo.Bar :" . a:str
-    emenu Foo.Bar
-    unmenu Foo
-endfunction
-
 function! VisualSearch(direction) range
     let l:saved_reg = @"
     execute "normal! vgvy"
@@ -153,7 +74,9 @@ function! VisualSearch(direction) range
     if a:direction == 'b'
         execute "normal ?" . l:pattern . "^M"
     elseif a:direction == 'gv'
-        call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
+        exe "menu Foo.Bar :" . "vimgrep " . '/'. l:pattern . '/' . ' **/*.'
+        emenu Foo.Bar
+        unmenu Foo
     elseif a:direction == 'f'
         execute "normal /" . l:pattern . "^M"
     endif
@@ -163,7 +86,6 @@ function! VisualSearch(direction) range
 endfunction
 
 " Run current file
-map <F11> :call RunSrc()<CR>
 func RunSrc()
     exec "w"
     if &filetype == 'c'
@@ -185,7 +107,6 @@ func RunSrc()
 endfunc
 
 " Auto format current file
-map <F12> :call FormartSrc()<CR>
 func FormartSrc()
     exec "w"
     if &filetype == 'c'
@@ -209,13 +130,10 @@ func FormartSrc()
 endfunc
 
 " c-x c-x => git grep the word under cursor
-let g:gitgrepprg="git\\ grep\\ -n"
-let g:gitroot="`git rev-parse --show-cdup`"
-
 function! GitGrep(args)
     let grepprg_bak=&grepprg
-    exec "set grepprg=" . g:gitgrepprg
-    execute 'silent! grep "\<' . a:args . '\>" ' . g:gitroot
+    exec "set grepprg=" . "git\\ grep\\ -n"
+    execute 'silent! grep "\<' . a:args . '\>" ' . "`git rev-parse --show-cdup`"
     botright copen
     let &grepprg=grepprg_bak
     exec "redraw!"
@@ -226,18 +144,43 @@ func GitGrepWord()
     call GitGrep(getreg('z'))
 endf
 
+vnoremap <silent> * :call VisualSearch('f')<CR>
+vnoremap <silent> # :call VisualSearch('b')<CR>
+vnoremap <silent> gv :call VisualSearch('gv')<CR>
+
 nmap <C-x><C-x> :call GitGrepWord()<CR>
 nmap <C-x><C-g> :Ack<cr>
+
+map <F11> :call RunSrc()<CR>
+map <F12> :call FormartSrc()<CR>
 
 "===================================="
 "       Plugin Mapping Settings      "
 "===================================="
 
-nnoremap <F2> :NERDTreeToggle<CR>
+nnoremap <F2> :NvimTreeToggle<CR>
 nnoremap <F5> :GundoToggle<CR>
 nnoremap <F6> :TagbarToggle<CR>
 nnoremap <F7> :call terminal#toggle()<CR>
 tnoremap <F7> <C-\><C-n>:call terminal#toggle()<cr>
+
+nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
+nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
+nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
+nnoremap <silent><leader>4 <Cmd>BufferLineGoToBuffer 4<CR>
+nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 5<CR>
+nnoremap <silent><leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
+nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
+nnoremap <silent><leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
+nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
+
+nnoremap <leader>n :BufferLineCycleNext<CR>
+nnoremap <leader>p :BufferLineCyclePrev<CR>
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 "===================================="
 "          Plugin Settings           "
