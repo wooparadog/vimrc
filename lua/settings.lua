@@ -26,8 +26,8 @@ vim.opt.showcmd       = true
 vim.opt.smartindent   = true
 vim.opt.softtabstop   = 4
 vim.opt.tabstop       = 4
-vim.opt.undodir       = "undo"
 vim.opt.undofile      = true
+vim.opt.undodir       = os.getenv("HOME") .. "/.vim/undo"
 vim.opt.wrap          = false
 
 vim.opt.listchars:append("eol:↴")
