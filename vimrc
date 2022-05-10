@@ -201,12 +201,6 @@ let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix' ]
 
 let g:gundo_prefer_python3=1
 
-" airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline_powerline_fonts = 1
-
-" Tig
 let g:tig_default_command = ''
 
 " Snip
