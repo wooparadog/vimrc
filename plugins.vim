@@ -41,6 +41,7 @@ Plug 'lewis6991/gitsigns.nvim'
 
 " Text handling
 Plug 'junegunn/vim-easy-align'
+Plug 'prettier/vim-prettier'
 
 " Misc
 Plug 'aperezdc/vim-template'

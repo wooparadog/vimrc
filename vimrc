@@ -8,7 +8,7 @@ source ~/.vim/plugins.vim
 "           Lua Init                 "
 "===================================="
 
-source ~/.vim/lua/init.lua
+"source ~/.vim/lua/init.lua
 
 "===================================="
 "           Basic Settings           "
@@ -30,9 +30,6 @@ let g:username="WooParadog"
 highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
 highlight Normal guibg=NONE
-
-autocmd TermOpen * setlocal nonumber norelativenumber
-autocmd TermOpen * startinsert
 
 "===================================="
 "           Mapping Settings         "
@@ -190,6 +187,8 @@ nmap ga <Plug>(EasyAlign)
 let g:syntastic_always_populate_loc_list = 1
 let g:ackprg = 'ag --nogroup --nocolor --column'
 let g:startify_files_number = 20
+let g:startify_change_to_dir = 0
+let g:startify_change_to_vcs_root = 1
 let g:templates_directory = ["~/.vim/templates/"]
 let MRU_Max_Entries = 100
 let g:user_emmet_expandabbr_key = '<c-e>'
@@ -201,6 +200,9 @@ let g:ctrlp_working_path_mode = ''
 let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix' ]
 
 let g:gundo_prefer_python3=1
+
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
 
 let g:tig_default_command = ''
 

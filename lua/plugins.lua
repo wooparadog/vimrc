@@ -65,13 +65,14 @@ cmp.setup.cmdline(':', {
 require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 require('lspconfig').pyright.setup{}
 require('lspconfig').gopls.setup{}
+require('lspconfig').tsserver.setup{}
 
 -- Others
-require('nvim-tree').setup{}
 require('gitsigns').setup()
 require("bufferline").setup{}
 require("nvim-gps").setup()
 require('statusline')
+require('browser')
 
 -- treesitter
 require'nvim-treesitter.configs'.setup {
