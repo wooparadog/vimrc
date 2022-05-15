@@ -34,12 +34,8 @@ vim.opt.listchars:append("eol:↴")
 vim.opt.wildignore:append("*.pyc")
 
 
-local yankGrp = api.nvim_create_augroup("TermToggler", { clear = true })
-api.nvim_create_autocmd("TermOpen", {
+local yankGrp = vim.api.nvim_create_augroup("TermToggler", { clear = true })
+vim.api.nvim_create_autocmd("TermOpen", {
   command = "setlocal nonumber norelativenumber",
-  group = yankGrp,
-})
-api.nvim_create_autocmd("TermOpen", {
-  command = "startinsert",
   group = yankGrp,
 })

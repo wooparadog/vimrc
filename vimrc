@@ -8,7 +8,7 @@ source ~/.vim/plugins.vim
 "           Lua Init                 "
 "===================================="
 
-"source ~/.vim/lua/init.lua
+source ~/.vim/lua/init.lua
 
 "===================================="
 "           Basic Settings           "
@@ -153,6 +153,23 @@ map <F11> :call RunSrc()<CR>
 map <F12> :call FormartSrc()<CR>
 
 "===================================="
+"       LSP Mapping Settings         "
+"===================================="
+
+command LspDeclaration             lua vim.lsp.buf.declaration()
+command LspDefinition              lua vim.lsp.buf.definition()
+command LspHover                   lua vim.lsp.buf.hover()
+command LspImplementation          lua vim.lsp.buf.implementation()
+command LspSignatureHelp           lua vim.lsp.buf.signature_help()
+command LspAddWorkspaceFolder      lua vim.lsp.buf.add_workspace_folder()
+command LspRemoveWorkspaceFolder   lua vim.lsp.buf.remove_workspace_folder()
+command LspTypeDefinition          lua vim.lsp.buf.type_definition()
+command LspRename                  lua vim.lsp.buf.rename()
+command LspCodeAction              lua vim.lsp.buf.code_action()
+command LspReferences              lua vim.lsp.buf.references()
+command LspFormatting              lua vim.lsp.buf.formatting()
+
+"===================================="
 "       Plugin Mapping Settings      "
 "===================================="
 
@@ -160,6 +177,8 @@ nnoremap <F2> :NvimTreeToggle<CR>
 nnoremap <F5> :GundoToggle<CR>
 nnoremap <F6> :TagbarToggle<CR>
 nnoremap <F7> :call terminal#toggle()<CR>
+nnoremap <leader>f :lua vim.lsp.buf.code_action()<CR>
+nnoremap <leader>r :lua vim.lsp.buf.rename()<CR>
 tnoremap <F7> <C-\><C-n>:call terminal#toggle()<cr>
 
 nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
@@ -171,6 +190,8 @@ nnoremap <silent><leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
 nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
 nnoremap <silent><leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
 nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
+
+vnoremap <silent> v <Plug>(expand_region_expand)
 
 nnoremap <leader>n :BufferLineCycleNext<CR>
 nnoremap <leader>p :BufferLineCyclePrev<CR>
