@@ -43,6 +43,9 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'junegunn/vim-easy-align'
 Plug 'prettier/vim-prettier'
 
+" Filetypes
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+
 " Misc
 Plug 'aperezdc/vim-template'
 Plug 'jlanzarotta/bufexplorer'
