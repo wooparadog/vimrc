@@ -114,7 +114,7 @@ func FormartSrc()
     elseif &filetype == 'perl'
         exec "!astyle --style=gnu --suffix=none %"
     elseif &filetype == 'py'||&filetype == 'python'
-        exec "r !yapf -i % > /dev/null 2>&1"
+        exec "!black %"
     elseif &filetype == 'java'
         exec "!astyle --style=java --suffix=none %"
     elseif &filetype == 'jsp'
@@ -222,7 +222,7 @@ let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix' ]
 
 let g:gundo_prefer_python3=1
 
-let g:prettier#autoformat = 1
+let g:prettier#autoformat = 0
 let g:prettier#autoformat_require_pragma = 0
 
 let g:tig_default_command = ''

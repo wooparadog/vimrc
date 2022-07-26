@@ -1,10 +1,8 @@
 call plug#begin()
 
 " Beauty
-" Plug 'vim-airline/vim-airline'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
-"Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'feline-nvim/feline.nvim'
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -68,6 +66,7 @@ Plug 'vim-scripts/matchit.zip'
 Plug 'vim-scripts/mru.vim'
 Plug 'tpope/vim-eunuch'
 Plug 'mhinz/vim-startify'
+Plug 'simeji/winresizer'
 
 
 call plug#end()
