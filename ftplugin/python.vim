@@ -1,4 +1,5 @@
 set tabstop=4 expandtab shiftwidth=4 softtabstop=4
+set fdm=indent
 
 :IndentGuidesEnable
 let g:syntastic_python_checker_args = '--ignore=E128'
