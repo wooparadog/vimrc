@@ -14,6 +14,8 @@ source ~/.vim/lua/init.lua
 "           Basic Settings           "
 "===================================="
 
+"nnoremap <SPACE> <Nop>
+map <Space> <Leader>
 let mapleader = "\<Space>"
 
 colorscheme evening
@@ -114,6 +116,7 @@ func FormartSrc()
     elseif &filetype == 'perl'
         exec "!astyle --style=gnu --suffix=none %"
     elseif &filetype == 'py'||&filetype == 'python'
+        exec "r !yapf -i % > /dev/null 2>&1"
         exec "!black %"
     elseif &filetype == 'java'
         exec "!astyle --style=java --suffix=none %"
@@ -177,8 +180,7 @@ nnoremap <F2> :NvimTreeToggle<CR>
 nnoremap <F5> :GundoToggle<CR>
 nnoremap <F6> :TagbarToggle<CR>
 nnoremap <F7> :call terminal#toggle()<CR>
-nnoremap <leader>f :lua vim.lsp.buf.code_action()<CR>
-nnoremap <leader>r :lua vim.lsp.buf.rename()<CR>
+nnoremap gd :lua vim.lsp.buf.definition()<CR>
 tnoremap <F7> <C-\><C-n>:call terminal#toggle()<cr>
 
 nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
@@ -205,7 +207,6 @@ nmap ga <Plug>(EasyAlign)
 "          Plugin Settings           "
 "===================================="
 
-let g:syntastic_always_populate_loc_list = 1
 let g:ackprg = 'ag --nogroup --nocolor --column'
 let g:startify_files_number = 20
 let g:startify_change_to_dir = 0
@@ -248,6 +249,3 @@ nmap        s   <Plug>(vsnip-select-text)
 xmap        s   <Plug>(vsnip-select-text)
 nmap        S   <Plug>(vsnip-cut-text)
 xmap        S   <Plug>(vsnip-cut-text)
-
-" LSP
-nnoremap gd :lua vim.lsp.buf.definition()<CR>

@@ -15,3 +15,6 @@ require('statusline')
 require('complete')
 require('browser')
 require('treesitter')
+
+require('diff')
+require('saga')

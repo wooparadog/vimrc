@@ -25,6 +25,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'rafamadriz/friendly-snippets'
+Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
 
 " File management
 Plug 'kien/ctrlp.vim'
@@ -36,6 +37,9 @@ Plug 'tpope/vim-fugitive' " Git integration
 Plug 'mattn/gist-vim'
 Plug 'codeindulgence/vim-tig'
 Plug 'lewis6991/gitsigns.nvim'
+
+Plug 'nvim-lua/plenary.nvim'  " Diffview
+Plug 'sindrets/diffview.nvim' " Diffview deps
 
 " Text handling
 Plug 'junegunn/vim-easy-align'
@@ -56,7 +60,6 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'othree/xml.vim'
 Plug 'psliwka/vim-smoothie'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/syntastic'
 Plug 'sjl/gundo.vim'
 Plug 'terryma/vim-expand-region'
 Plug 'tpope/vim-rails'
@@ -68,5 +71,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'mhinz/vim-startify'
 Plug 'simeji/winresizer'
 
+" Programming
+Plug 'dense-analysis/ale'  " linter
 
 call plug#end()
