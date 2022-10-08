@@ -49,9 +49,6 @@ nmap <leader>z :%s#\<<c-r>=expand("<cword>")<cr>\>#
 " Pull Visually Highlighted text into LHS of a substitute
 vnoremap <C-r> "hy:%s#<C-r>h##gc<left><left><left>
 
-" Enter visual line mode with <Space><Space>:
-nmap <Leader><Leader> V
-
 "===================================="
 "         Advanced Settings          "
 "===================================="
