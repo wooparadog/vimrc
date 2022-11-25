@@ -113,12 +113,13 @@ func FormartSrc()
     elseif &filetype == 'perl'
         exec "!astyle --style=gnu --suffix=none %"
     elseif &filetype == 'py'||&filetype == 'python'
-        exec "r !yapf -i % > /dev/null 2>&1"
-        exec "!black %"
+        exec "!black -q %"
     elseif &filetype == 'java'
         exec "!astyle --style=java --suffix=none %"
     elseif &filetype == 'jsp'
         exec "!astyle --style=gnu --suffix=none %"
+    elseif &filetype == 'go'
+        exec "!gofmt -w %"
     elseif &filetype == 'xml'
         exec "!astyle --style=gnu --suffix=none %"
     elseif &filetype == 'modula2'
@@ -151,6 +152,8 @@ nmap <C-x><C-g> :Ack<cr>
 
 map <F11> :call RunSrc()<CR>
 map <F12> :call FormartSrc()<CR>
+autocmd BufWritePost *.py call FormartSrc()
+autocmd BufWritePost *.go call FormartSrc()
 
 "===================================="
 "       LSP Mapping Settings         "
