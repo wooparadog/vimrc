@@ -45,6 +45,9 @@ Plug 'sindrets/diffview.nvim' " Diffview deps
 Plug 'junegunn/vim-easy-align'
 Plug 'prettier/vim-prettier'
 
+" Motion
+Plug 'mg979/vim-visual-multi'
+
 " Filetypes
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
