@@ -1,7 +1,7 @@
 local keymap = vim.keymap.set
 local saga = require('lspsaga')
 
-saga.init_lsp_saga()
+saga.setup({})
 
 
 keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
