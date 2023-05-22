@@ -10,5 +10,7 @@ if exists("&colorcolumn")
     set colorcolumn=79
 endif
 
-let b:ale_linters = ['flake8', 'mypy']
-let b:ale_fixers = ['black']
+let b:ale_linters = ['black', 'mypy']
+let b:ale_fixers = ['black', 'autoflake']
+let b:ale_fix_on_save = 1
+let b:ale_python_autoflake_options = '--remove-all-unused-imports'

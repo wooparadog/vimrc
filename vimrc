@@ -112,8 +112,6 @@ func FormartSrc()
         exec "r !astyle --style=ansi --one-line=keep-statements -a --suffix=none %> /dev/null 2>&1"
     elseif &filetype == 'perl'
         exec "!astyle --style=gnu --suffix=none %"
-    elseif &filetype == 'py'||&filetype == 'python'
-        exec "!black -q %"
     elseif &filetype == 'java'
         exec "!astyle --style=java --suffix=none %"
     elseif &filetype == 'jsp'
@@ -177,7 +175,7 @@ command LspFormatting              lua vim.lsp.buf.formatting()
 "===================================="
 
 nnoremap <F2> :NvimTreeToggle<CR>
-nnoremap <F5> :GundoToggle<CR>
+nnoremap <F5> :MundoToggle<CR>
 nnoremap <F6> :TagbarToggle<CR>
 nnoremap <F7> :call terminal#toggle()<CR>
 nnoremap gd :lua vim.lsp.buf.definition()<CR>
@@ -221,7 +219,7 @@ let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn|node_modules)$'
 let g:ctrlp_working_path_mode = ''
 let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix' ]
 
-let g:gundo_prefer_python3=1
+let g:mundo_prefer_python3=1
 
 let g:prettier#autoformat = 0
 let g:prettier#autoformat_require_pragma = 0

@@ -1,9 +1,23 @@
 #! /usr/bin/env lua
 
+local navic = require("nvim-navic")
+
 require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-require('lspconfig').pyright.setup{}
-require('lspconfig').gopls.setup{}
-require('lspconfig').tsserver.setup{}
+require('lspconfig').pyright.setup{
+  on_attach = function(client, bufnr)
+    navic.attach(client, bufnr)
+  end
+}
+require('lspconfig').gopls.setup{
+  on_attach = function(client, bufnr)
+    navic.attach(client, bufnr)
+  end
+}
+require('lspconfig').tsserver.setup{
+  on_attach = function(client, bufnr)
+    navic.attach(client, bufnr)
+  end
+}
 require('lspconfig').clangd.setup{}
 
 -- Others
@@ -14,7 +28,8 @@ require('statusline')
 require('complete')
 require('browser')
 require('treesitter')
-require("nvim-gps").setup()
 
 require('diff')
 require('saga')
+
+require('github_copilot')

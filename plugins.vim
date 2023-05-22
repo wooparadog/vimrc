@@ -6,7 +6,7 @@ Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'feline-nvim/feline.nvim'
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'smiteshp/nvim-gps'
+Plug 'SmiteshP/nvim-navic'
 
 " Color schemes
 Plug 'flazz/vim-colorschemes'
@@ -26,6 +26,9 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'rafamadriz/friendly-snippets'
 Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
+
+Plug 'zbirenbaum/copilot.lua'
+Plug 'zbirenbaum/copilot-cmp'
 
 " File management
 Plug 'kien/ctrlp.vim'
@@ -63,7 +66,7 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'othree/xml.vim'
 Plug 'psliwka/vim-smoothie'
 Plug 'scrooloose/nerdcommenter'
-Plug 'sjl/gundo.vim'
+Plug 'simnalamburt/vim-mundo'
 Plug 'terryma/vim-expand-region'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-surround'
