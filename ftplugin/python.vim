@@ -10,7 +10,10 @@ if exists("&colorcolumn")
     set colorcolumn=79
 endif
 
+let b:ale_python_auto_virtualenv = 0
 let b:ale_linters = ['black', 'mypy']
-let b:ale_fixers = ['black', 'autoflake']
-let b:ale_fix_on_save = 1
+let b:ale_fixers = ['isort', 'black', 'autoflake']
 let b:ale_python_autoflake_options = '--remove-all-unused-imports'
+let b:ale_python_isort_options = '--profile black'
+
+let b:ale_fix_on_save = 1
