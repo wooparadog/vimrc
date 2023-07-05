@@ -5,6 +5,7 @@ require('lspconfig').pyright.setup{}
 require('lspconfig').gopls.setup{}
 require('lspconfig').tsserver.setup{}
 require('lspconfig').clangd.setup{}
+require('lspconfig').tailwindcss.setup{}
 
 -- Others
 require('gitsigns').setup()

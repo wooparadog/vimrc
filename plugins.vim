@@ -63,7 +63,6 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'othree/xml.vim'
 Plug 'psliwka/vim-smoothie'
 Plug 'scrooloose/nerdcommenter'
-Plug 'sjl/gundo.vim'
 Plug 'terryma/vim-expand-region'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-surround'
@@ -73,6 +72,7 @@ Plug 'vim-scripts/mru.vim'
 Plug 'tpope/vim-eunuch'
 Plug 'mhinz/vim-startify'
 Plug 'simeji/winresizer'
+Plug 'simnalamburt/vim-mundo'
 
 " Programming
 Plug 'dense-analysis/ale'  " linter

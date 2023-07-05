@@ -124,6 +124,10 @@ func FormartSrc()
         exec "!astyle --style=gnu --suffix=none %"
     elseif &filetype == 'modula2'
         exec "!landslide %"
+    elseif &filetype == 'typescript'
+        exec ":Prettier"
+    elseif &filetype == 'typescriptreact'
+        exec ":Prettier"
     endif
     exec "e! %"
 endfunc
@@ -154,6 +158,8 @@ map <F11> :call RunSrc()<CR>
 map <F12> :call FormartSrc()<CR>
 autocmd BufWritePost *.py call FormartSrc()
 autocmd BufWritePost *.go call FormartSrc()
+autocmd BufWritePost *.ts call FormartSrc()
+autocmd BufWritePost *.tsx call FormartSrc()
 
 "===================================="
 "       LSP Mapping Settings         "
@@ -177,7 +183,7 @@ command LspFormatting              lua vim.lsp.buf.formatting()
 "===================================="
 
 nnoremap <F2> :NvimTreeToggle<CR>
-nnoremap <F5> :GundoToggle<CR>
+nnoremap <F5> :MundoToggle<CR>
 nnoremap <F6> :TagbarToggle<CR>
 nnoremap <F7> :call terminal#toggle()<CR>
 nnoremap gd :lua vim.lsp.buf.definition()<CR>
@@ -220,8 +226,6 @@ let g:indent_guides_guide_size = 1
 let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn|node_modules)$'
 let g:ctrlp_working_path_mode = ''
 let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix' ]
-
-let g:gundo_prefer_python3=1
 
 let g:prettier#autoformat = 0
 let g:prettier#autoformat_require_pragma = 0
