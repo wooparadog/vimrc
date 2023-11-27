@@ -46,7 +46,7 @@ Plug 'sindrets/diffview.nvim' " Diffview deps
 
 " Text handling
 Plug 'junegunn/vim-easy-align'
-Plug 'prettier/vim-prettier'
+Plug 'sbdchd/neoformat'
 
 " Motion
 Plug 'mg979/vim-visual-multi'
@@ -79,5 +79,8 @@ Plug 'simnalamburt/vim-mundo'
 
 " Programming
 Plug 'dense-analysis/ale'  " linter
+
+" Language
+Plug 'lepture/vim-jinja'
 
 call plug#end()

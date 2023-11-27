@@ -225,6 +225,7 @@ let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn|node_modules)$'
 let g:ctrlp_working_path_mode = ''
 let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix' ]
 
+let g:mundo_prefer_python3=1
 let g:prettier#autoformat = 0
 let g:prettier#autoformat_require_pragma = 0
 
