@@ -123,9 +123,9 @@ func FormartSrc()
     elseif &filetype == 'modula2'
         exec "!landslide %"
     elseif &filetype == 'typescript'
-        exec ":Prettier"
+        exec ":Neoformat"
     elseif &filetype == 'typescriptreact'
-        exec ":Prettier"
+        exec ":Neoformat"
     endif
     exec "e! %"
 endfunc
