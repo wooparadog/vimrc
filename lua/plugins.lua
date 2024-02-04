@@ -39,6 +39,5 @@ require('browser')
 require('treesitter')
 
 require('diff')
-require('saga')
-
 require('github_copilot')
+require('saga')

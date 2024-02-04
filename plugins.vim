@@ -4,7 +4,7 @@ call plug#begin()
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'feline-nvim/feline.nvim'
-Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
+Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'SmiteshP/nvim-navic'
 
@@ -25,7 +25,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'rafamadriz/friendly-snippets'
-Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
+Plug 'nvimdev/lspsaga.nvim', { 'branch': 'main' }
 
 Plug 'zbirenbaum/copilot.lua'
 Plug 'zbirenbaum/copilot-cmp'
