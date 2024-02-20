@@ -8,7 +8,7 @@ saga.setup({
 })
 
 
-keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
+keymap("n", "gh", "<cmd>Lspsaga finder<CR>", { silent = true })
 
 -- Code action
 keymap("n", "<leader>f", "<cmd>Lspsaga code_action<CR>", { silent = true })

@@ -31,7 +31,11 @@ require('lspconfig').tailwindcss.setup{}
 
 -- Others
 require('gitsigns').setup()
-require("bufferline").setup{}
+require("bufferline").setup{
+  options = {
+    diagnostics = "nvim_lsp"
+  }
+}
 
 require('statusline')
 require('complete')
