@@ -1,5 +1,6 @@
 -- Setup nvim-cmp.
 local cmp = require'cmp'
+
 cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
@@ -24,17 +25,16 @@ cmp.setup({
       select = false
     }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   }),
-  sources = cmp.config.sources({
-    { name = "copilot", group_index = 2 },
+  sources = {
     { name = 'nvim_lsp' },
     { name = 'vsnip' }, -- For vsnip users.
     { name = 'nvim_lua' }, -- For vsnip users.
+    { name = 'codeium' },
+    { name = 'buffer' },
     -- { name = 'luasnip' }, -- For luasnip users.
     -- { name = 'ultisnips' }, -- For ultisnips users.
     -- { name = 'snippy' }, -- For snippy users.
-  }, {
-    { name = 'buffer' },
-  })
+  }
 })
 
 -- Set configuration for specific filetype.

@@ -1,5 +1,8 @@
 call plug#begin()
 
+" Dependencies
+Plug 'nvim-lua/plenary.nvim'  " Diffview, Codeium
+
 " Beauty
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
@@ -26,9 +29,7 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'rafamadriz/friendly-snippets'
 Plug 'nvimdev/lspsaga.nvim', { 'branch': 'main' }
-
-Plug 'zbirenbaum/copilot.lua'
-Plug 'zbirenbaum/copilot-cmp'
+Plug 'Exafunction/codeium.nvim'
 
 " File management
 Plug 'kien/ctrlp.vim'
@@ -41,7 +42,6 @@ Plug 'mattn/gist-vim'
 Plug 'codeindulgence/vim-tig'
 Plug 'lewis6991/gitsigns.nvim'
 
-Plug 'nvim-lua/plenary.nvim'  " Diffview
 Plug 'sindrets/diffview.nvim' " Diffview deps
 
 " Text handling

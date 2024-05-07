@@ -10,7 +10,6 @@ end
 
 local navic = require("nvim-navic")
 
-require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 require('lspconfig').pyright.setup{
   on_attach = function(client, bufnr)
     navic.attach(client, bufnr)
@@ -28,6 +27,7 @@ require('lspconfig').tsserver.setup{
 }
 require('lspconfig').clangd.setup{}
 require('lspconfig').tailwindcss.setup{}
+require('lspconfig').rust_analyzer.setup{}
 
 -- Others
 require('gitsigns').setup()
@@ -37,11 +37,16 @@ require("bufferline").setup{
   }
 }
 
-require('statusline')
+
+-- Complete engines
+require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+require("codeium").setup({detect_proxy = true})
 require('complete')
+
+require('statusline')
 require('browser')
 require('treesitter')
 
 require('diff')
-require('github_copilot')
 require('saga')
+
