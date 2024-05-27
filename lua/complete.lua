@@ -26,10 +26,10 @@ cmp.setup({
     }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   }),
   sources = {
+    { name = 'codeium' },
     { name = 'nvim_lsp' },
     { name = 'vsnip' }, -- For vsnip users.
     { name = 'nvim_lua' }, -- For vsnip users.
-    { name = 'codeium' },
     { name = 'buffer' },
     -- { name = 'luasnip' }, -- For luasnip users.
     -- { name = 'ultisnips' }, -- For ultisnips users.

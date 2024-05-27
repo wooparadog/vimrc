@@ -132,19 +132,13 @@ endfunc
 
 " c-x c-x => git grep the word under cursor
 function! GitGrep(args)
-    let grepprg_bak=&grepprg
-    exec "set grepprg=" . "git\\ grep\\ -n"
-    execute 'silent! grep "\<' . a:args . '\>" ' . "`git rev-parse --show-cdup`"
-    botright copen
-    let &grepprg=grepprg_bak
-    exec "redraw!"
+    execute 'silent Ggrep!' . ' "\<' . a:args . '\>"' | cw | redraw!
 endfunction
 
 func GitGrepWord()
     normal! "zyiw
     call GitGrep(getreg('z'))
 endf
-
 vnoremap <silent> * :call VisualSearch('f')<CR>
 vnoremap <silent> # :call VisualSearch('b')<CR>
 vnoremap <silent> gv :call VisualSearch('gv')<CR>
