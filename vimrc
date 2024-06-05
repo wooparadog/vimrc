@@ -207,11 +207,6 @@ nmap ga <Plug>(EasyAlign)
 
 let MRU_Max_Entries = 100
 
-let g:python_host_skip_check=1
-let g:python_host_prog = '/usr/bin/python'
-let g:python3_host_skip_check=1
-let g:python3_host_prog = '/usr/bin/python3'
-
 let g:ackprg = 'ag --nogroup --nocolor --column'
 let g:startify_files_number = 20
 let g:startify_change_to_dir = 0
