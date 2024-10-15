@@ -1,7 +1,10 @@
 call plug#begin()
 
 " Dependencies
-Plug 'nvim-lua/plenary.nvim'  " Diffview, Codeium
+Plug 'nvim-lua/plenary.nvim'      " Diffview, Codeium, Avante
+Plug 'stevearc/dressing.nvim'     " Avante
+Plug 'MunifTanjim/nui.nvim'       " Avante
+Plug 'HakonHarnes/img-clip.nvim'  " Avante
 
 " Beauty
 Plug 'nathanaelkane/vim-indent-guides'
@@ -30,6 +33,9 @@ Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'rafamadriz/friendly-snippets'
 Plug 'nvimdev/lspsaga.nvim', { 'branch': 'main' }
 Plug 'Exafunction/codeium.nvim'
+
+" AI
+Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': 'make' }
 
 " File management
 Plug 'kien/ctrlp.vim'

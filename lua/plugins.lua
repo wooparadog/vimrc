@@ -20,7 +20,7 @@ require('lspconfig').gopls.setup{
     navic.attach(client, bufnr)
   end
 }
-require('lspconfig').tsserver.setup{
+require('lspconfig').ts_ls.setup{
   on_attach = function(client, bufnr)
     navic.attach(client, bufnr)
   end
@@ -40,7 +40,7 @@ require("bufferline").setup{
 
 -- Complete engines
 require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-require("codeium").setup({detect_proxy = true})
+require("codeium").setup({detect_proxy = true, enable_chat = true})
 require('complete')
 
 require('statusline')
@@ -50,3 +50,12 @@ require('treesitter')
 require('diff')
 require('saga')
 
+-- Avante
+-- deps:
+require('img-clip').setup ({
+  -- use recommended settings from above
+})
+require('avante_lib').load()
+require('avante').setup ({
+  -- Your config here!
+})
