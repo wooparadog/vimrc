@@ -100,34 +100,6 @@ func RunSrc()
     elseif &filetype == 'ruby'
         exec "!ruby %"
     endif
-    exec "e! %"
-endfunc
-
-" Auto format current file
-func FormartSrc()
-    exec "w"
-    if &filetype == 'c'
-        exec "!astyle --style=ansi --one-line=keep-statements -a --suffix=none %"
-    elseif &filetype == 'cpp' || &filetype == 'hpp'
-        exec "r !astyle --style=ansi --one-line=keep-statements -a --suffix=none %> /dev/null 2>&1"
-    elseif &filetype == 'perl'
-        exec "!astyle --style=gnu --suffix=none %"
-    elseif &filetype == 'java'
-        exec "!astyle --style=java --suffix=none %"
-    elseif &filetype == 'jsp'
-        exec "!astyle --style=gnu --suffix=none %"
-    elseif &filetype == 'go'
-        exec "!gofmt -w %"
-    elseif &filetype == 'xml'
-        exec "!astyle --style=gnu --suffix=none %"
-    elseif &filetype == 'modula2'
-        exec "!landslide %"
-    elseif &filetype == 'typescript'
-        exec ":Neoformat"
-    elseif &filetype == 'typescriptreact'
-        exec ":Neoformat"
-    endif
-    exec "e! %"
 endfunc
 
 " c-x c-x => git grep the word under cursor
@@ -145,13 +117,8 @@ vnoremap <silent> gv :call VisualSearch('gv')<CR>
 
 nmap <C-x><C-x> :call GitGrepWord()<CR>
 nmap <C-x><C-g> :Ack<cr>
-
 map <F11> :call RunSrc()<CR>
-map <F12> :call FormartSrc()<CR>
-autocmd BufWritePost *.py call FormartSrc()
-autocmd BufWritePost *.go call FormartSrc()
-autocmd BufWritePost *.ts call FormartSrc()
-autocmd BufWritePost *.tsx call FormartSrc()
+map <F12> :Neoformat<CR>
 
 "===================================="
 "       LSP Mapping Settings         "
