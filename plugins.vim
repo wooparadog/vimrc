@@ -13,6 +13,7 @@ Plug 'feline-nvim/feline.nvim'
 Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'SmiteshP/nvim-navic'
+Plug 'NvChad/nvim-colorizer.lua'
 
 " Color schemes
 Plug 'flazz/vim-colorschemes'
