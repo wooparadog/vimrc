@@ -39,7 +39,7 @@ Plug 'Exafunction/codeium.nvim'
 Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': 'make' }
 
 " File management
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'kyazdani42/nvim-tree.lua'
 
 " Git
