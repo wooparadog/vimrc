@@ -49,6 +49,8 @@ nmap <leader>z :%s#\<<c-r>=expand("<cword>")<cr>\>#
 " Pull Visually Highlighted text into LHS of a substitute
 vnoremap <C-r> "hy:%s#<C-r>h##gc<left><left><left>
 
+vnoremap <leader>y "*y
+
 "===================================="
 "         Advanced Settings          "
 "===================================="
