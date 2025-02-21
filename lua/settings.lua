@@ -33,6 +33,8 @@ vim.opt.wrap          = false
 vim.opt.listchars:append("eol:↴")
 vim.opt.wildignore:append("*.pyc")
 
+-- Fix lspsaga now showing diagnostics
+vim.diagnostic.config({severity_sort = true})
 
 local yankGrp = vim.api.nvim_create_augroup("TermToggler", { clear = true })
 vim.api.nvim_create_autocmd("TermOpen", {
