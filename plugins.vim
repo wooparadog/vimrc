@@ -37,6 +37,7 @@ Plug 'Exafunction/codeium.nvim'
 
 " AI
 Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': 'make' }
+Plug 'echasnovski/mini.pick'
 
 " File management
 Plug 'ctrlpvim/ctrlp.vim'
