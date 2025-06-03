@@ -59,12 +59,16 @@ require('img-clip').setup ({
 require('mini.pick').setup()
 require('avante_lib').load()
 require('avante').setup ({
-  provider = "openai",
-  openai = {
-    endpoint = "https://openrouter.ai/api/v1",
-    model = "anthropic/claude-3.7-sonnet",
-    proxy = "http://192.168.100.2:8118",
-    api_key_name = "OPENROUTER_APIKEY",
+  --mode = "legacy",
+  provider = "openrouter",
+  vendors = {
+    openrouter = {
+      __inherited_from = 'openai',
+      endpoint = "https://openrouter.ai/api/v1",
+      model = "anthropic/claude-3.7-sonnet",
+      proxy = "http://192.168.100.2:8118",
+      api_key_name = "OPENROUTER_APIKEY",
+    },
   },
   file_selector = {
     provider = "mini.pick",
