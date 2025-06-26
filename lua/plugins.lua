@@ -59,9 +59,9 @@ require('img-clip').setup ({
 require('mini.pick').setup()
 require('avante_lib').load()
 require('avante').setup ({
-  --mode = "legacy",
+  mode = "legacy",
   provider = "openrouter",
-  vendors = {
+  providers = {
     openrouter = {
       __inherited_from = 'openai',
       endpoint = "https://openrouter.ai/api/v1",
