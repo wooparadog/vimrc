@@ -119,6 +119,7 @@ map("n", "<leader>p", ":BufferLineCyclePrev<CR>", { desc = "[Buffer] Previous bu
 
 -- Selection
 map("v", "v", "<Plug>(expand_region_expand)", { silent = true, desc = "[Selection] Expand region" })
+map("v", "<leader>t", ":<C-u>'<,'>w !tmux load-buffer -<CR>", { desc = "[Tmux] Send selection to tmux buffer" })
 
 -- Align
 map("x", "ga", "<Plug>(EasyAlign)", { desc = "[Align] EasyAlign (visual)" })
