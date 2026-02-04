@@ -10,6 +10,20 @@ local function parse_category(desc)
   return cat, rest or desc
 end
 
+local function display_key(str)
+  if not str or str == "" then return "" end
+  -- Keep existing <C-x> style notation, but make literal whitespace visible.
+  local out = str
+  out = out:gsub("\t", "<Tab>")
+  out = out:gsub(" ", "<Space>")
+  return out
+end
+
+local function display_text(str)
+  if not str or str == "" then return "" end
+  return vim.fn.strtrans(str)
+end
+
 -- Show keymaps grouped by category
 -- show_all: if true, show all mappings; if false, only show those with desc
 function M.show(show_all)
@@ -43,8 +57,8 @@ function M.show(show_all)
 
         table.insert(categories[cat], {
           mode = m.name:sub(1, 1),  -- First letter of mode name
-          lhs = map.lhs or "",
-          desc = desc,
+          lhs = display_key(map.lhs or ""),
+          desc = display_text(desc),
         })
       end
     end
@@ -62,6 +76,11 @@ function M.show(show_all)
   local title = show_all and "# Keymaps (all)" or "# Keymaps"
   table.insert(lines, title)
   table.insert(lines, "")
+
+  -- Prepare per-category items and compute global column widths
+  local render_categories = {}
+  local mode_w = 1
+  local lhs_w = 1
 
   for _, cat in ipairs(category_order) do
     local items = categories[cat]
@@ -86,22 +105,24 @@ function M.show(show_all)
       end
     end
 
-    -- Column widths based on display width for proper alignment
-    local mode_w = 1
-    local lhs_w = 1
+    render_categories[cat] = unique_items
     for _, item in ipairs(unique_items) do
       mode_w = math.max(mode_w, vim.fn.strdisplaywidth(item.mode))
       lhs_w = math.max(lhs_w, vim.fn.strdisplaywidth(item.lhs))
     end
+  end
 
-    local function pad_right(str, width)
-      return str .. string.rep(" ", math.max(0, width - vim.fn.strdisplaywidth(str)))
-    end
+  local function pad_right(str, width)
+    return str .. string.rep(" ", math.max(0, width - vim.fn.strdisplaywidth(str)))
+  end
+
+  for _, cat in ipairs(category_order) do
+    local items = render_categories[cat]
 
     table.insert(lines, "## " .. cat)
     table.insert(lines, string.rep("-", 40))
 
-    for _, item in ipairs(unique_items) do
+    for _, item in ipairs(items) do
       local mode_cell = pad_right(item.mode, mode_w)
       local lhs_cell = pad_right(item.lhs, lhs_w)
       table.insert(lines, "  " .. mode_cell .. " " .. lhs_cell .. " " .. item.desc)
