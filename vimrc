@@ -14,10 +14,6 @@ source ~/.vim/lua/init.lua
 "           Basic Settings           "
 "===================================="
 
-"nnoremap <SPACE> <Nop>
-map <Space> <Leader>
-let mapleader = "\<Space>"
-
 colorscheme evening
 
 filetype plugin on
@@ -138,4 +134,3 @@ let g:prettier#autoformat = 0
 let g:prettier#autoformat_require_pragma = 0
 
 let g:tig_default_command = ''
-

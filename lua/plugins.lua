@@ -10,25 +10,19 @@ end
 
 local navic = require("nvim-navic")
 
-require('lspconfig').pyright.setup{
-  on_attach = function(client, bufnr)
-    navic.attach(client, bufnr)
-  end
-}
-require('lspconfig').gopls.setup{
-  on_attach = function(client, bufnr)
-    navic.attach(client, bufnr)
-  end
-}
-require('lspconfig').ts_ls.setup{
-  on_attach = function(client, bufnr)
-    navic.attach(client, bufnr)
-  end
-}
-require('lspconfig').clangd.setup{}
-require('lspconfig').tailwindcss.setup{}
-require('lspconfig').lua_ls.setup{}
-require('lspconfig').rust_analyzer.setup{}
+local on_attach = function(client, bufnr)
+    if client.server_capabilities.documentSymbolProvider then
+        navic.attach(client, bufnr)
+    end
+end
+
+vim.lsp.enable('pyright', {on_attach = on_attach})
+vim.lsp.enable('gopls', {on_attach = on_attach})
+vim.lsp.enable('ts_ls', {on_attach = on_attach})
+vim.lsp.enable('clangd', {on_attach = on_attach})
+vim.lsp.enable('tailwindcss', {on_attach = on_attach})
+vim.lsp.enable('lua_ls', {on_attach = on_attach})
+vim.lsp.enable('rust_analyzer', {on_attach = on_attach})
 
 -- Others
 require('gitsigns').setup()

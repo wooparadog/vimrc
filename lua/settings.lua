@@ -48,6 +48,9 @@ vim.api.nvim_create_autocmd("TermOpen", {
 
 local map = vim.keymap.set
 
+map("", "<Space>", "<Leader>", { remap = true, desc = "[Leader] Map space to leader" })
+vim.g.mapleader = " "
+
 -- Window Navigation
 map("n", "<C-h>", "<C-W>h", { desc = "[Window] Move to left window" })
 map("n", "<C-j>", "<C-W>j", { desc = "[Window] Move to bottom window" })
@@ -74,6 +77,25 @@ map("n", "<F12>", ":Neoformat<CR>", { desc = "[File] Format with Neoformat" })
 
 -- LSP
 map("n", "gd", vim.lsp.buf.definition, { desc = "[LSP] Go to definition" })
+map("n", "gh", "<cmd>Lspsaga finder<CR>", { silent = true, desc = "[LSP] Finder" })
+map("n", "<leader>f", "<cmd>Lspsaga code_action<CR>", { silent = true, desc = "[LSP] Code action" })
+map("v", "<leader>f", "<cmd>Lspsaga range_code_action<CR>", { silent = true, desc = "[LSP] Range code action" })
+map("n", "<leader>r", "<cmd>Lspsaga rename<CR>", { silent = true, desc = "[LSP] Rename" })
+map("n", "<leader>gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true, desc = "[LSP] Peek definition" })
+map("n", "<leader>cd", "<cmd>Lspsaga show_buf_diagnostics<CR>", { silent = true, desc = "[LSP] Buffer diagnostics" })
+map("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true, desc = "[LSP] Prev diagnostic" })
+map("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true, desc = "[LSP] Next diagnostic" })
+map("n", "[E", function()
+  require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
+end, { silent = true, desc = "[LSP] Prev error" })
+map("n", "]E", function()
+  require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
+end, { silent = true, desc = "[LSP] Next error" })
+map("n", "<leader>o", "<cmd>Lspsaga outline<CR>", { silent = true, desc = "[LSP] Outline" })
+map("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true, desc = "[LSP] Hover docs" })
+
+-- Help
+map("n", "<leader>h", "<cmd>Keymaps<CR>", { desc = "[Help] Show keymaps" })
 
 -- File Tree
 map("n", "<F2>", ":NvimTreeToggle<CR>", { desc = "[Tree] Toggle file tree" })

@@ -86,22 +86,63 @@ function M.show(show_all)
       end
     end
 
+    -- Column widths based on display width for proper alignment
+    local mode_w = 1
+    local lhs_w = 1
+    for _, item in ipairs(unique_items) do
+      mode_w = math.max(mode_w, vim.fn.strdisplaywidth(item.mode))
+      lhs_w = math.max(lhs_w, vim.fn.strdisplaywidth(item.lhs))
+    end
+
+    local function pad_right(str, width)
+      return str .. string.rep(" ", math.max(0, width - vim.fn.strdisplaywidth(str)))
+    end
+
     table.insert(lines, "## " .. cat)
     table.insert(lines, string.rep("-", 40))
 
     for _, item in ipairs(unique_items) do
-      table.insert(lines, string.format("  %-4s %-16s %s", item.mode, item.lhs, item.desc))
+      local mode_cell = pad_right(item.mode, mode_w)
+      local lhs_cell = pad_right(item.lhs, lhs_w)
+      table.insert(lines, "  " .. mode_cell .. " " .. lhs_cell .. " " .. item.desc)
     end
     table.insert(lines, "")
   end
 
-  vim.cmd("new")
-  vim.bo.buftype = "nofile"
-  vim.bo.bufhidden = "wipe"
-  vim.bo.swapfile = false
-  vim.api.nvim_buf_set_lines(0, 0, -1, false, lines)
-  vim.bo.modifiable = false
-  vim.cmd("normal! gg")
+  -- Create a floating window in the current buffer
+  local buf = vim.api.nvim_create_buf(false, true)
+  vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
+  vim.api.nvim_buf_set_option(buf, "buftype", "nofile")
+  vim.api.nvim_buf_set_option(buf, "bufhidden", "wipe")
+  vim.api.nvim_buf_set_option(buf, "swapfile", false)
+  vim.api.nvim_buf_set_option(buf, "modifiable", false)
+
+  local max_w = 0
+  for _, line in ipairs(lines) do
+    max_w = math.max(max_w, vim.fn.strdisplaywidth(line))
+  end
+  local max_h = #lines
+
+  local margin = 2
+  local width = math.min(max_w + margin, math.max(40, vim.o.columns - 4))
+  local height = math.min(max_h, math.max(10, vim.o.lines - 4))
+  local row = math.floor((vim.o.lines - height) / 2)
+  local col = math.floor((vim.o.columns - width) / 2)
+
+  local win = vim.api.nvim_open_win(buf, true, {
+    relative = "editor",
+    row = row,
+    col = col,
+    width = width,
+    height = height,
+    style = "minimal",
+    border = "rounded",
+  })
+
+  vim.api.nvim_buf_set_keymap(buf, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
+  vim.api.nvim_win_set_option(win, "cursorline", true)
+  vim.api.nvim_win_set_option(win, "wrap", false)
+  vim.api.nvim_win_set_cursor(win, { 1, 0 })
 end
 
 -- Create the :Keymaps command
