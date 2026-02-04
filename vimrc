@@ -34,24 +34,6 @@ match WhitespaceEOL /\s\+$/
 highlight Normal guibg=NONE
 
 "===================================="
-"           Mapping Settings         "
-"===================================="
-
-" Quick jumping between splits
-map <C-J> <C-W>j
-map <C-K> <C-W>k
-map <C-l> <C-W>l
-map <C-h> <C-W>h
-
-" Pull word under cursor into LHS of a substitute
-nmap <leader>z :%s#\<<c-r>=expand("<cword>")<cr>\>#
-
-" Pull Visually Highlighted text into LHS of a substitute
-vnoremap <C-r> "hy:%s#<C-r>h##gc<left><left><left>
-
-vnoremap <leader>y "+y
-
-"===================================="
 "         Advanced Settings          "
 "===================================="
 
@@ -113,17 +95,9 @@ func GitGrepWord()
     normal! "zyiw
     call GitGrep(getreg('z'))
 endf
-vnoremap <silent> * :call VisualSearch('f')<CR>
-vnoremap <silent> # :call VisualSearch('b')<CR>
-vnoremap <silent> gv :call VisualSearch('gv')<CR>
-
-nmap <C-x><C-x> :call GitGrepWord()<CR>
-nmap <C-x><C-g> :Ack<cr>
-map <F11> :call RunSrc()<CR>
-map <F12> :Neoformat<CR>
 
 "===================================="
-"       LSP Mapping Settings         "
+"       LSP Commands                 "
 "===================================="
 
 command LspDeclaration             lua vim.lsp.buf.declaration()
@@ -138,37 +112,6 @@ command LspRename                  lua vim.lsp.buf.rename()
 command LspCodeAction              lua vim.lsp.buf.code_action()
 command LspReferences              lua vim.lsp.buf.references()
 command LspFormatting              lua vim.lsp.buf.formatting()
-
-"===================================="
-"       Plugin Mapping Settings      "
-"===================================="
-
-nnoremap <F2> :NvimTreeToggle<CR>
-nnoremap <F5> :MundoToggle<CR>
-nnoremap <F6> :TagbarToggle<CR>
-nnoremap <F7> :call terminal#toggle()<CR>
-nnoremap gd :lua vim.lsp.buf.definition()<CR>
-tnoremap <F7> <C-\><C-n>:call terminal#toggle()<cr>
-
-nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
-nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
-nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
-nnoremap <silent><leader>4 <Cmd>BufferLineGoToBuffer 4<CR>
-nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 5<CR>
-nnoremap <silent><leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
-nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
-nnoremap <silent><leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
-nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
-
-vnoremap <silent> v <Plug>(expand_region_expand)
-
-nnoremap <leader>n :BufferLineCycleNext<CR>
-nnoremap <leader>p :BufferLineCyclePrev<CR>
-
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
 
 "===================================="
 "          Plugin Settings           "
@@ -196,24 +139,3 @@ let g:prettier#autoformat_require_pragma = 0
 
 let g:tig_default_command = ''
 
-" Snip
-" Expand
-imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
-smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
-
-" Expand or jump
-imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
-smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
-
-" Jump forward or backward
-imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
-smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
-
-" Select or cut text to use as $TM_SELECTED_TEXT in the next snippet.
-" See https://github.com/hrsh7th/vim-vsnip/pull/50
-nmap        s   <Plug>(vsnip-select-text)
-xmap        s   <Plug>(vsnip-select-text)
-nmap        S   <Plug>(vsnip-cut-text)
-xmap        S   <Plug>(vsnip-cut-text)

@@ -6,6 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a Neovim configuration repository using a hybrid Vim script and Lua setup. The configuration uses vim-plug for plugin management and includes LSP integration, AI-assisted coding (Avante.nvim with Claude), and extensive language support.
 
+This repo is a submodule of the primary dotfiles on $HOME. So you can treat current folder as a git repo.
+
 ## Common Commands
 
 ```vim
