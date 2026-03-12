@@ -8,21 +8,14 @@ if ok then
    end
 end
 
-local navic = require("nvim-navic")
 
-local on_attach = function(client, bufnr)
-    if client.server_capabilities.documentSymbolProvider then
-        navic.attach(client, bufnr)
-    end
-end
-
-vim.lsp.enable('pyright', {on_attach = on_attach})
-vim.lsp.enable('gopls', {on_attach = on_attach})
-vim.lsp.enable('ts_ls', {on_attach = on_attach})
-vim.lsp.enable('clangd', {on_attach = on_attach})
-vim.lsp.enable('tailwindcss', {on_attach = on_attach})
-vim.lsp.enable('lua_ls', {on_attach = on_attach})
-vim.lsp.enable('rust_analyzer', {on_attach = on_attach})
+vim.lsp.enable('pyright')
+vim.lsp.enable('gopls')
+vim.lsp.enable('ts_ls')
+vim.lsp.enable('clangd')
+vim.lsp.enable('tailwindcss')
+vim.lsp.enable('lua_ls')
+vim.lsp.enable('rust_analyzer')
 
 -- Others
 require('gitsigns').setup()
