@@ -3,7 +3,6 @@
 
 local M = {}
 
--- Parse category from description like "[Category] Description"
 local function parse_category(desc)
   if not desc then return nil, desc end
   local cat, rest = desc:match("^%[([^%]]+)%]%s*(.*)$")
@@ -12,7 +11,6 @@ end
 
 local function display_key(str)
   if not str or str == "" then return "" end
-  -- Keep existing <C-x> style notation, but make literal whitespace visible.
   local out = str
   out = out:gsub("\t", "<Tab>")
   out = out:gsub(" ", "<Space>")
@@ -24,8 +22,6 @@ local function display_text(str)
   return vim.fn.strtrans(str)
 end
 
--- Show keymaps grouped by category
--- show_all: if true, show all mappings; if false, only show those with desc
 function M.show(show_all)
   local modes = {
     { name = "Normal", mode = "n" },
@@ -37,7 +33,6 @@ function M.show(show_all)
     { name = "Visual/Select", mode = "x" },
   }
 
-  -- Collect all keymaps grouped by category
   local categories = {}
   local category_order = {}
 
@@ -56,7 +51,7 @@ function M.show(show_all)
         end
 
         table.insert(categories[cat], {
-          mode = m.name:sub(1, 1),  -- First letter of mode name
+          mode = m.name:sub(1, 1),
           lhs = display_key(map.lhs or ""),
           desc = display_text(desc),
         })
@@ -64,20 +59,17 @@ function M.show(show_all)
     end
   end
 
-  -- Sort category order (but keep "Other" at the end)
   table.sort(category_order, function(a, b)
     if a == "Other" then return false end
     if b == "Other" then return true end
     return a < b
   end)
 
-  -- Build output lines
   local lines = {}
   local title = show_all and "# Keymaps (all)" or "# Keymaps"
   table.insert(lines, title)
   table.insert(lines, "")
 
-  -- Prepare per-category items and compute global column widths
   local render_categories = {}
   local mode_w = 1
   local lhs_w = 1
@@ -85,19 +77,16 @@ function M.show(show_all)
   for _, cat in ipairs(category_order) do
     local items = categories[cat]
 
-    -- Sort by lhs within category
     table.sort(items, function(a, b)
       if a.lhs == b.lhs then return a.mode < b.mode end
       return a.lhs < b.lhs
     end)
 
-    -- Deduplicate (same lhs+desc in different modes)
     local seen = {}
     local unique_items = {}
     for _, item in ipairs(items) do
       local key = item.lhs .. "|" .. item.desc
       if seen[key] then
-        -- Append mode to existing entry
         seen[key].mode = seen[key].mode .. "/" .. item.mode
       else
         seen[key] = item
@@ -130,7 +119,6 @@ function M.show(show_all)
     table.insert(lines, "")
   end
 
-  -- Create a floating window in the current buffer
   local buf = vim.api.nvim_create_buf(false, true)
   vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
   vim.api.nvim_buf_set_option(buf, "buftype", "nofile")
@@ -166,7 +154,6 @@ function M.show(show_all)
   vim.api.nvim_win_set_cursor(win, { 1, 0 })
 end
 
--- Create the :Keymaps command
 vim.api.nvim_create_user_command("Keymaps", function(opts)
   M.show(opts.bang)
 end, { bang = true, desc = "Show keymaps (! for all, default: with description only)" })
