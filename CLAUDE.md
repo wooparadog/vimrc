@@ -4,16 +4,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-This is a Neovim configuration repository using a hybrid Vim script and Lua setup. The configuration uses vim-plug for plugin management and includes LSP integration, AI-assisted coding (Avante.nvim with Claude), and extensive language support.
+This is a Neovim configuration repository using a hybrid Vim script and Lua setup. The configuration uses lazy.nvim for plugin management and includes LSP integration, Codeium completion, and extensive language support.
 
 This repo is a submodule of the primary dotfiles on $HOME. So you can treat current folder as a git repo.
 
 ## Common Commands
 
 ```vim
-:PlugInstall          " Install plugins
-:PlugUpdate           " Update plugins
-:PlugClean            " Remove unused plugins
+:Lazy                 " Open the lazy.nvim UI
+:Lazy sync            " Install missing + update existing plugins
+:Lazy clean           " Remove unused plugins
+:Lazy check           " Check for plugin updates
 :Neoformat            " Format current file (also F12)
 ```
 
@@ -23,16 +24,22 @@ This repo is a submodule of the primary dotfiles on $HOME. So you can treat curr
 
 ```
 vimrc (entry point)
-├── plugins.vim         → Plugin declarations (vim-plug)
-└── lua/init.lua        → Lua module loader
-    ├── settings.lua    → Editor settings (tabs, encoding, undo)
-    └── plugins.lua     → LSP servers, completion, AI setup
-        ├── complete.lua    → nvim-cmp configuration
-        ├── statusline.lua  → Feline status bar
-        ├── treesitter.lua  → Syntax highlighting
-        ├── saga.lua        → LSP UI (lspsaga)
-        ├── diff.lua        → Diffview.nvim
-        └── browser.lua     → Nvim-tree
+└── lua/init.lua            → Sets leader, then loads config modules
+    ├── config/options.lua  → Editor options + autocmds
+    ├── config/lazy.lua     → Bootstraps lazy.nvim, imports lua/plugins/
+    │   └── lua/plugins/*   → One spec file per logical group
+    │       ├── ui.lua          → devicons, feline, bufferline, colorizer, ...
+    │       ├── colorschemes.lua
+    │       ├── treesitter.lua
+    │       ├── lsp.lua         → nvim-lspconfig + lspsaga
+    │       ├── cmp.lua         → nvim-cmp + sources + vsnip keymaps
+    │       ├── ai.lua          → Codeium
+    │       ├── nvim-tree.lua
+    │       ├── git.lua         → gitsigns, fugitive, gitgutter, diffview, ...
+    │       ├── editing.lua     → surround, easy-align, neoformat, ALE, ...
+    │       ├── markdown.lua
+    │       └── misc.lua        → ctrlp, tagbar, mundo, ack, mru, emmet, ...
+    └── config/keymaps.lua  → Global keymaps + :Keymaps viewer command
 ```
 
 ### Key Directories
@@ -81,4 +88,6 @@ LSP file watcher is disabled for performance on Linux.
 
 ## AI Integration
 
-Avante.nvim is configured with OpenRouter API using Claude 3.7 Sonnet. Configuration is in `lua/plugins.lua` under the avante setup section.
+Codeium provides inline completion suggestions and chat. Configuration is in
+`lua/plugins/ai.lua` and the source is wired into `nvim-cmp` via the
+`codeium` source in `lua/plugins/cmp.lua`.

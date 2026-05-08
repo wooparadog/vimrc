@@ -1,5 +1,5 @@
 return {
-  -- Icons (used by feline, bufferline, nvim-tree, lspsaga, avante)
+  -- Icons (used by feline, bufferline, nvim-tree, lspsaga)
   {
     "nvim-tree/nvim-web-devicons",
     -- kyazdani42/nvim-web-devicons was the historic name; the project has
