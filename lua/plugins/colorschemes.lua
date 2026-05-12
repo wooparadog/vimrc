@@ -5,5 +5,4 @@ return {
   { "flazz/vim-colorschemes", },
   { "dracula/vim",            name = "dracula", lazy = true },
   { "AlessandroYorba/Sierra", lazy = true       },
-  { "joshdick/onedark.vim",   lazy = true       },
 }

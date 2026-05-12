@@ -11,6 +11,10 @@ return {
   {
     "nathanaelkane/vim-indent-guides",
     event = "VeryLazy",
+    -- ftplugin/{python,typescript}.vim run :IndentGuidesEnable during
+    -- FileType, which fires before VeryLazy. cmd= ensures lazy loads
+    -- the plugin on first invocation of any of these commands.
+    cmd = { "IndentGuidesEnable", "IndentGuidesDisable", "IndentGuidesToggle" },
     init = function()
       vim.g.indent_guides_guide_size = 1
     end,

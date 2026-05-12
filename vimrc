@@ -9,7 +9,7 @@ source ~/.vim/lua/init.lua
 "           Basic Settings           "
 "===================================="
 
-colorscheme evening
+colorscheme sierra
 
 filetype plugin on
 filetype indent on
