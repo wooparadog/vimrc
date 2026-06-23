@@ -55,6 +55,10 @@ return {
   -- MRU
   {
     "vim-scripts/mru.vim",
+    -- Load early (not just on :MRU) so the BufRead/BufWritePost autocmds that
+    -- track opened files are registered; cmd-only lazy loading meant the list
+    -- never updated until :MRU was run manually.
+    event = "VeryLazy",
     cmd = "MRU",
     init = function()
       vim.g.MRU_Max_Entries = 100
