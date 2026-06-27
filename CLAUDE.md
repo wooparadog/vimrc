@@ -28,7 +28,7 @@ vimrc (entry point)
     ├── config/options.lua  → Editor options + autocmds
     ├── config/lazy.lua     → Bootstraps lazy.nvim, imports lua/plugins/
     │   └── lua/plugins/*   → One spec file per logical group
-    │       ├── ui.lua          → devicons, feline, bufferline, colorizer, ...
+    │       ├── ui.lua          → devicons, lualine, bufferline, colorizer, ...
     │       ├── colorschemes.lua
     │       ├── treesitter.lua
     │       ├── lsp.lua         → nvim-lspconfig + lspsaga

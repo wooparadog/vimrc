@@ -23,7 +23,30 @@ return {
       vim.lsp.enable("tailwindcss")
       vim.lsp.enable("lua_ls")
       vim.lsp.enable("rust_analyzer")
+
+      -- Attach nvim-navic to any server that exposes document symbols, so the
+      -- lualine statusline can render the code-location breadcrumb. (Replaces
+      -- the old per-server on_attach now that we use vim.lsp.enable.)
+      vim.api.nvim_create_autocmd("LspAttach", {
+        group = vim.api.nvim_create_augroup("NavicAttach", { clear = true }),
+        callback = function(args)
+          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          if client and client.server_capabilities.documentSymbolProvider then
+            require("nvim-navic").attach(client, args.buf)
+          end
+        end,
+      })
     end,
+  },
+  {
+    "SmiteshP/nvim-navic",
+    lazy = true,
+    opts = {
+      highlight = true,
+      -- We attach manually from the LspAttach autocmd above, so navic must not
+      -- also auto-attach (that would double-register the handler).
+      lsp = { auto_attach = false },
+    },
   },
   {
     "nvimdev/lspsaga.nvim",
